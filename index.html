@@ -1,217 +1,310 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rohit Dinde - Cybersecurity & AI Engineer Portfolio</title>
+  <title>Rohit Dinde — Cybersecurity & AI Engineer</title>
+
+  <!-- ====== Base Styles ====== -->
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      line-height: 1.6;
-      padding: 0 15px;
-      color: #222;
-      background-color: #fefefe;
+    :root{
+      --ink:#0d1b2a;
+      --muted:#4a5568;
+      --brand:#0d47a1;
+      --accent:#ffcc00;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --ok:#16a34a;
     }
-    h1, h2, h3 {
-      color: #2c3e50;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans","Helvetica Neue", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      margin: 0;
+      line-height: 1.65;
     }
-    a {
-      color: #007acc;
-      text-decoration: none;
+
+    .wrap{max-width: 980px; margin: 0 auto; padding: 24px}
+
+    h1,h2,h3{margin: 0 0 .4em}
+    h1{font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: .2px}
+    h2{font-size: clamp(22px, 3.2vw, 28px); font-weight: 700}
+    h3{font-size: 20px; font-weight: 700}
+    p,li{color: var(--muted)}
+    a{color: var(--brand); text-decoration: none}
+    a:hover{text-decoration: underline}
+
+    .btn{
+      display:inline-block; padding:12px 22px; border-radius: 12px;
+      font-weight:700; text-decoration:none; transition:transform .15s ease, box-shadow .15s ease, background .2s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15)
     }
-    a:hover {
-      text-decoration: underline;
+    .btn:active{transform: translateY(1px)}
+    .btn-primary{background: var(--accent); color:#111}
+    .btn-primary:hover{box-shadow: 0 10px 24px rgba(0,0,0,.25)}
+    .btn-ghost{border:2px solid var(--accent); color: var(--accent); background: transparent; box-shadow:none}
+    .btn-ghost:hover{background: rgba(255,204,0,.08)}
+
+    /* ====== Hero ====== */
+    .hero{
+      background: radial-gradient(1200px 500px at 10% -20%, #5dade2 0%, rgba(93,173,226,0) 50%) ,
+                  radial-gradient(1200px 600px at 110% 0%, #90caf9 0%, rgba(144,202,249,0) 55%),
+                  linear-gradient(135deg, #0f2027, #203a43 55%, #2c5364);
+      color: #fff;
+      padding: 68px 24px 56px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
     }
-    hr {
-      margin: 40px 0;
-      border: none;
-      border-top: 1px solid #ddd;
+    .hero .card{
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
     }
-    ul {
-      padding-left: 1.2em;
+    .lead{font-size: clamp(16px,2.2vw,18px); color: #e6edf3}
+
+    .hero-cta{margin-top: 18px}
+    .hero-cta a{margin-right: 12px}
+
+    .portrait{
+      width: 100%; max-width: 360px; height: auto; border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35); display:block; margin: 18px auto;
     }
-    .github-stats {
-      max-width: 300px;
-      margin-top: 20px;
+
+    /* ====== Sections ====== */
+    section{padding: 56px 0}
+    .card{
+      background: var(--card);
+      border: 1px solid #e9eef5;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 6px 18px rgba(13,71,161,.06);
     }
+    .grid{display:grid; gap:18px}
+    .grid-2{grid-template-columns: repeat(auto-fit,minmax(260px,1fr))}
+    .grid-3{grid-template-columns: repeat(auto-fit,minmax(240px,1fr))}
+
+    /* ====== Education Timeline ====== */
+    .timeline{position:relative; padding-left: 26px}
+    .timeline::before{
+      content:""; position:absolute; left:10px; top:0; bottom:0; width:4px; background:#ffe9a6; border-radius: 4px;
+    }
+    .edu{
+      position: relative; margin: 0 0 18px; padding:16px 16px 16px 18px; border-radius: 14px; background:#fffdf4; border:1px solid #ffefbd
+    }
+    .edu::before{
+      content:"🎓"; position:absolute; left:-6px; top:14px; background:#fff; border:2px solid #ffe08a; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:16px
+    }
+    .edu h3{color:#b45309}
+
+    /* ====== Project cards ====== */
+    .project{transition: transform .15s ease, box-shadow .15s ease}
+    .project:hover{transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,.12)}
+
+    /* ====== Footer ====== */
+    footer{padding: 26px 0 60px; color:#7b8a9a; text-align:center}
+
+    /* ====== Small niceties ====== */
+    .tag{
+      display:inline-block; background:#eef2ff; color:#3730a3; border:1px solid #e0e7ff; padding:2px 10px; border-radius:999px; font-size:12px; margin-right:6px
+    }
+
+    /* ====== Fade-in animation ====== */
+    .reveal{opacity:0; transform: translateY(8px); animation:reveal .7s ease forwards}
+    .reveal.delay-1{animation-delay: .12s}
+    .reveal.delay-2{animation-delay: .22s}
+    .reveal.delay-3{animation-delay: .32s}
+    @keyframes reveal{to{opacity:1; transform:none}}
   </style>
 </head>
+
 <body>
-  <!-- Hero Section -->
-<section id="hero" style="padding: 60px 20px; background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: white; text-align: center; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin-bottom: 40px; font-family: 'Segoe UI', sans-serif;">
-  
-  <!-- Main Greeting -->
-  <h1 style="font-size: 3em; margin-bottom: 15px; line-height: 1.2;">
-    👋 Greetings, I’m <span style="color: #ffcc00;">Rohit Dattatray Dinde</span>
-  </h1>
 
-  <!-- Tagline -->
-  <h2 style="font-size: 1.4em; font-weight: 400; margin-bottom: 25px; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-    🚀 Aspiring <strong>Cybersecurity & AI Engineer</strong> — crafting secure systems, automating defenses, and exploring technology’s next frontier.
-  </h2>
+  <!-- ========= HERO ========= -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="card reveal">
+        <h1>👋 Greetings, I’m <span style="color:var(--accent)">Rohit Dattatray Dinde</span></h1>
+        <p class="lead">
+          🚀 Cybersecurity &amp; AI Engineer — crafting secure systems, automating defenses, and exploring the frontier where threat intelligence meets machine learning.
+        </p>
 
-  <!-- A Touch of Personality -->
-  <p style="max-width: 700px; margin: 0 auto 30px; font-size: 1.1em; color: #f1f1f1;">
-    From decoding malicious network packets to orchestrating AI-driven threat detection, I approach challenges like puzzles waiting to be solved.  
-    My mission: to make cyberspace a little safer, one clever solution at a time.
-  </p>
+        <img src="Profile.png" alt="Rohit Dattatray Dinde portrait" class="portrait" />
 
-  <!-- Call to Action -->
-  <div style="margin-top: 20px;">
-    <a href="#projects" style="background: #ffcc00; color: #000; padding: 12px 25px; border-radius: 8px; font-weight: bold; text-decoration: none; box-shadow: 0 3px 8px rgba(0,0,0,0.3); transition: background 0.3s;">
-      🔍 Explore My Work
-    </a>
-    <a href="#connect" style="margin-left: 15px; background: transparent; border: 2px solid #ffcc00; color: #ffcc00; padding: 10px 22px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: all 0.3s;">
-      🤝 Let’s Connect
-    </a>
-  </div>
-
-</section>
-
-  <section id="about" style="padding: 40px; background: linear-gradient(135deg, #e3f2fd, #bbdefb); text-align: center; font-family: Arial, sans-serif;">
-  <div style="max-width: 800px; margin: auto; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 30px;">
-    
-    <!-- Profile Photo -->
-   <img src="Profile.png" 
-     alt="Rohit Dattatray Dinde"
-     style="width: 100%; max-width: 400px; height: auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); margin-bottom: 20px;">
-
-    
-    <!-- Heading -->
-    <h2 style="font-size: 28px; margin-bottom: 10px; color: #0d47a1;">About Me</h2>
-    
-    <!-- Text -->
-    <p style="font-size: 16px; color: #333; line-height: 1.6;">
-      I’m <strong>Rohit Dattatray Dinde</strong>, a passionate cybersecurity enthusiast with a deep interest in protecting digital landscapes. 
-      My work focuses on threat detection, incident response, and automation using modern security tools.
-      With a strong foundation in Linux, SIEM, Python, and networking, I aim to bridge technology and security through practical solutions.
-    </p>
-    
-  </div>
-</section>
-
-
-  <section>
-    <h3>🔧 Skills & Tools</h3>
-    <ul>
-      <li><strong>Languages & Scripting:</strong> Python, SQL, Bash, Linux CLI</li>
-      <li><strong>Cybersecurity Tools:</strong> Splunk, Wireshark, SIEM, IDS, Security Incident Response</li>
-      <li><strong>Concepts & Frameworks:</strong> Threat Detection, Phishing Analysis, MITRE ATT&amp;CK, SOC Operations</li>
-      <li><strong>Soft Skills:</strong> Teamwork, Communication, Attention to Detail</li>
-    </ul>
-  </section>
-
-  <hr />
-
-  <section>
-    <
-
-<section id="education" style="padding: 40px 0; background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
-  <div style="max-width: 900px; margin: auto; text-align: center;">
-    <h2 style="font-size: 2em; margin-bottom: 20px;">🎓 Education Journey</h2>
-
-    <!-- Degree -->
-    <div style="background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px; position: relative; overflow: hidden;">
-      <span style="position: absolute; top: -15px; right: -15px; background: #ff7043; color: white; padding: 8px 12px; border-radius: 50%; font-size: 1.2em;">💡</span>
-      <h3 style="color: #e65100; margin-bottom: 8px;">Bachelor of Engineering (Honors in AI)</h3>
-      <p style="margin: 0; font-weight: bold;">Pune University · 2019 - 2025</p>
-      <p style="color: #555; margin-top: 8px;">Explored AI, cybersecurity, and automation. Learned by doing — building projects, breaking (and fixing) systems, and debugging life’s mysteries with coffee ☕. Art of performing thoughts and ideas on theatrical stage along with cinematic camera.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#projects">🔍 Explore My Work</a>
+          <a class="btn btn-ghost" href="#contact">🤝 Let’s Connect</a>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- Fun Learning Philosophy -->
-    <div style="background: #fafafa; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-      <h3 style="color: #ff9800; margin-bottom: 10px;">📚 My Learning Formula</h3>
-      <ul style="list-style: none; padding: 0; font-size: 1.1em;">
-        <li>🧩 <strong>Curiosity</strong> + Questions → Better Answers</li>
-        <li>🛠 <strong>Hands-on Labs</strong> → Stronger Skills</li>
-        <li>💬 <strong>Sharing Knowledge</strong> → Deeper Understanding</li>
-        <li>🎯 <strong>Fail, Learn, Repeat</strong> → Real Growth</li>
-      </ul>
+  <main class="wrap">
+
+    <!-- ========= ABOUT ========= -->
+    <section id="about" class="reveal delay-1">
+      <div class="card" style="text-align:center">
+        <h2 style="color:var(--brand)">About Me</h2>
+        <p>
+          I’m <strong>Rohit Dattatray Dinde</strong>, a builder at the intersection of <strong>cyber defense</strong> and <strong>AI automation</strong>.
+          I love turning complex problems into elegant tools—whether that’s parsing noisy logs for hidden signals or scripting incident response that’s fast, repeatable, and reliable.
+        </p>
+        <p>
+          Core stack: <span class="tag">Linux</span> <span class="tag">Python</span> <span class="tag">SQL</span>
+          <span class="tag">Splunk</span> <span class="tag">Wireshark</span> <span class="tag">SIEM</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ========= SKILLS ========= -->
+    <section id="skills" class="reveal delay-2">
+      <h2>🔧 Skills &amp; Tools</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Languages &amp; Scripting</h3>
+          <p>Python, SQL, Bash, Linux CLI</p>
+        </div>
+        <div class="card">
+          <h3>Security Tooling</h3>
+          <p>Splunk, Wireshark, SIEM, IDS, Security Incident Response</p>
+        </div>
+        <div class="card">
+          <h3>Concepts &amp; Frameworks</h3>
+          <p>Threat Detection, Phishing Analysis, MITRE ATT&amp;CK, SOC Operations</p>
+        </div>
+        <div class="card">
+          <h3>Human Skills</h3>
+          <p>Teamwork, Communication, Attention to Detail</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= EDUCATION ========= -->
+    <section id="education" class="reveal">
+      <h2>🎓 Education Journey</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="timeline">
+            <div class="edu">
+              <h3>Bachelor of Engineering (Honors in AI)</h3>
+              <p style="margin:.2em 0 0"><strong>Pune University</strong> · 2019 – 2025</p>
+              <p style="margin:.6em 0 0">
+                Blended AI and cybersecurity—learning by shipping projects, breaking (and fixing) systems,
+                and documenting what works. Also explored the art of performance and camera craft for clear,
+                human-centered storytelling.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="background:#fffaf0">
+          <h3>📚 My Learning Formula</h3>
+          <ul style="margin:0; padding-left:18px">
+            <li>🧩 <strong>Curiosity</strong> + great questions → better answers</li>
+            <li>🛠 <strong>Hands-on labs</strong> → durable skills</li>
+            <li>💬 <strong>Teach &amp; share</strong> → deeper understanding</li>
+            <li>🎯 <strong>Iterate fast</strong> → real growth</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= PROJECTS ========= -->
+    <section id="projects" class="reveal">
+      <h2>📂 Projects &amp; Labs</h2>
+      <div class="grid grid-3">
+        <a class="card project" href="https://github.com/Rohit30Confluence/phishing-log-detector" target="_blank" rel="noopener">
+          <h3>Phishing Log Detector</h3>
+          <p>Python CLI that scans access logs for IOCs (IPs, URLs) and flags phishing attempts with explainable alerts.</p>
+          <p><span class="tag">Python</span> <span class="tag">IOC</span> <span class="tag">CLI</span></p>
+        </a>
+        <div class="card project">
+          <h3>Security Task Automation</h3>
+          <p>Automated repetitive SOC workflows with Python to reduce toil and increase response speed.</p>
+          <p><span class="tag">Automation</span> <span class="tag">Playbooks</span></p>
+        </div>
+        <div class="card project">
+          <h3>Threat Detection: Splunk &amp; Wireshark</h3>
+          <p>Built searches and dashboards; analyzed packet captures to surface anomalies and malicious behavior.</p>
+          <p><span class="tag">Splunk</span> <span class="tag">Wireshark</span></p>
+        </div>
+        <div class="card project">
+          <h3>Incident Response Scenarios</h3>
+          <p>Simulated SIEM investigations and drafted concise response playbooks for high-signal actions.</p>
+          <p><span class="tag">IR</span> <span class="tag">SIEM</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= CERTS ========= -->
+    <section id="certificates" class="reveal">
+      <h2>📜 Certificates &amp; Licenses</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Google Cybersecurity Professional Certificate</h3>
+          <p>Issued by <strong>Google</strong> via Coursera</p>
+          <p><a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/9ACKYX6QATZR" target="_blank" rel="noopener">🔗 View Credential</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= CONTACT ========= -->
+    <section id="contact" class="reveal">
+      <h2>🌐 Connect with Me</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>Direct</h3>
+          <p>Email: <a href="mailto:rohitdinde30@gmail.com">rohitdinde30@gmail.com</a></p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/rohitdinde" target="_blank" rel="noopener">linkedin.com/in/rohitdinde</a></p>
+          <p>GitHub: <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">github.com/Rohit30Confluence</a></p>
+          <p><a class="btn btn-primary" href="mailto:rohitdinde30@gmail.com">✉️ Send Email</a></p>
+        </div>
+        <div class="card">
+          <h3>Quick Note</h3>
+          <p style="margin-top:0">I’m actively seeking roles where I can combine automation with security operations to create measurable impact.</p>
+          <p><span class="tag">Open to Work</span> <span class="tag">Internships</span> <span class="tag">Full-time</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= GITHUB STATS ========= -->
+    <section class="reveal">
+      <h2>📈 GitHub Stats</h2>
+      <div class="card" style="text-align:center">
+        <img src="https://github-readme-stats.vercel.app/api?username=Rohit30Confluence&show_icons=true&theme=default"
+             alt="Rohit's GitHub Stats" style="max-width: 360px; width:100%; height:auto"/>
+      </div>
+    </section>
+
+    <!-- ========= GOALS ========= -->
+    <section class="reveal">
+      <h2>🎯 Goals</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <ul style="margin:0">
+            <li>Secure a cybersecurity role leveraging automation and threat detection.</li>
+            <li>Contribute consistently to open-source security tools.</li>
+            <li>Design measurable, resilient incident response playbooks.</li>
+          </ul>
+        </div>
+        <div class="card" style="background:#f0fff4; border-color:#bbf7d0">
+          <h3 style="color:var(--ok); margin-top:0">Guiding Principle</h3>
+          <p>Ship small, ship often, measure impact.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Thanks for visiting my portfolio. If you’re building something important and secure, let’s talk.</p>
     </div>
+  </footer>
 
-  </div>
-</section>
-
-
-<section id="projects" style="padding: 40px 0; background-color: #f8f9fa;">
-  <div style="max-width: 900px; margin: auto; text-align: center;">
-    <h2 style="font-size: 2em; margin-bottom: 20px;">📂 Projects & Labs</h2>
-
-    <!-- Project 1 -->
-    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px;">
-      <h3><a href="https://github.com/Rohit30Confluence/phishing-log-detector" target="_blank" style="text-decoration: none; color: #000;">Phishing Log Detector</a></h3>
-      <p>Python CLI tool to detect phishing attempts from access logs using IOC matching.</p>
-    </div>
-
-    <!-- Project 2 -->
-    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px;">
-      <h3>Security Task Automation</h3>
-      <p>Automated routine security tasks with Python scripts to improve efficiency and accuracy.</p>
-    </div>
-
-    <!-- Project 3 -->
-    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 20px;">
-      <h3>Threat Detection with Splunk & Wireshark</h3>
-      <p>Hands-on analysis of network traffic and log data to identify malicious activity.</p>
-    </div>
-
-    <!-- Project 4 -->
-    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-      <h3>Incident Response Scenarios</h3>
-      <p>Simulated SIEM log analysis and incident response playbooks.</p>
-    </div>
-
-  </div>
-</section>
-
-<section id="certificates" style="padding: 40px 0; background-color: #f8f9fa;">
-  <div style="max-width: 900px; margin: auto; text-align: center;">
-    <h2 style="font-size: 2em; margin-bottom: 20px;">📜 Certificates & Licenses</h2>
-    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-      <h3>Google Cybersecurity Professional Certificate</h3>
-      <p>Issued by <strong>Google</strong> via Coursera</p>
-      <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/9ACKYX6QATZR" target="_blank" style="color: #007bff; text-decoration: none;">
-        🔗 View Credential
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h3>🌐 Connect with Me</h3>
-  <ul>
-    <li>Email: <a href="mailto:rohitdinde30@gmail.com">rohitdinde30@gmail.com</a></li>
-    <li>LinkedIn: <a href="https://www.linkedin.com/in/rohitdinde" target="_blank" rel="noopener">linkedin.com/in/rohitdinde</a></li>
-    <li>GitHub: <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">github.com/Rohit30Confluence</a></li>
-  </ul>
-</section>
-
-<hr />
-
-<section>
-  <h3>📈 GitHub Stats</h3>
-  <img
-    class="github-stats"
-    src="https://github-readme-stats.vercel.app/api?username=Rohit30Confluence&show_icons=true&theme=default"
-    alt="Rohit's GitHub Stats"
-  />
-</section>
-
-<hr />
-      
-<section>
-  <h3>🎯 Goals</h3>
-  <ul>
-    <li>Secure a cybersecurity role leveraging my skills in security automation and threat detection.</li>
-    <li>Continuously learn and contribute to open-source security projects.</li>
-    <li>Build a career focused on protecting systems through proactive detection and response.</li>
-  </ul>
-</section>
-
-<footer style="margin-top: 60px; font-size: 0.9em; color: #888;">
-  Thanks for visiting my portfolio! Feel free to connect or collaborate.
-</footer>
-
+</body>
+</html>
+```
