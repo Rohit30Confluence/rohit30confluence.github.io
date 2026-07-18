@@ -33,12 +33,15 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --ink:#080B10;--ink2:#0D1018;--surf:#141820;--surf2:#1A1F2B;
-  --border:rgba(240,128,48,.12);--border-h:rgba(240,128,48,.35);
-  --amber:#F08030;--amber-b:#FFa060;--ag:rgba(240,128,48,.14);
-  --blue:#5BA4E8;--bg2:rgba(91,164,232,.1);
-  --sage:#58A870;--sage2:rgba(88,168,112,.1);
-  --text:#E4EDF8;--mid:#7A8AA0;--dim:#384050;
+  --border:rgba(240,140,50,.14);--border-h:rgba(240,140,50,.4);
+  --amber:#F5942E;--amber-b:#FFB454;--ag:rgba(245,148,46,.16);
+  --blue:#4FB4F0;--bg2:rgba(79,180,240,.12);
+  --sage:#4FCE85;--sage2:rgba(79,206,133,.12);
+  --red:#E85D5D;--rg:rgba(232,93,93,.14);
+  --text:#EEF4FC;--mid:#8494AC;--dim:#3C4658;
   --r:4px;
+  --glow-amber:0 0 40px rgba(245,148,46,.35);
+  --glow-blue:0 0 40px rgba(79,180,240,.3);
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--text);overflow-x:hidden;line-height:1.7}
@@ -79,12 +82,14 @@ nav.scrolled{background:rgba(8,11,16,.88);backdrop-filter:blur(20px);border-bott
 
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 60px 80px}
+#hero::before{content:'';position:absolute;top:-10%;right:-10%;width:60%;height:70%;background:radial-gradient(circle,rgba(245,148,46,.14),transparent 65%);pointer-events:none;z-index:0}
+#hero::after{content:'';position:absolute;bottom:-20%;left:-5%;width:50%;height:60%;background:radial-gradient(circle,rgba(79,180,240,.1),transparent 65%);pointer-events:none;z-index:0}
 #hero-canvas{position:absolute;inset:0;z-index:0}
 .hero-inner{position:relative;z-index:1;max-width:900px}
 .hero-tag{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.16em;color:var(--amber);display:flex;align-items:center;gap:12px;margin-bottom:24px}
 .hero-tag::before{content:'';display:inline-block;width:36px;height:1px;background:var(--amber)}
 .hero-name{font-family:'Syne',sans-serif;font-size:clamp(3.4rem,9vw,7.5rem);font-weight:800;line-height:.97;letter-spacing:-.04em;margin-bottom:18px;color:var(--text)}
-.hero-name span{color:var(--amber);display:block}
+.hero-name span{background:linear-gradient(100deg,var(--amber-b),var(--amber) 60%,#ff7a3d);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;filter:drop-shadow(0 0 26px rgba(245,148,46,.28))}
 .hero-role{display:flex;align-items:baseline;gap:10px;margin-bottom:30px;flex-wrap:wrap}
 .hero-role-pre{font-size:clamp(1rem,2.5vw,1.3rem);font-weight:300;color:var(--mid)}
 #typing{font-size:clamp(1rem,2.5vw,1.3rem);font-weight:600;color:var(--amber);border-right:2px solid var(--amber);white-space:nowrap;animation:blink .8s step-end infinite}
@@ -95,8 +100,8 @@ nav.scrolled{background:rgba(8,11,16,.88);backdrop-filter:blur(20px);border-bott
 .now-dot{width:7px;height:7px;border-radius:50%;background:var(--sage);flex-shrink:0;box-shadow:0 0 0 3px var(--sage2);animation:nowpulse 2s ease-in-out infinite}
 @keyframes nowpulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
-.btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--ink);text-decoration:none;padding:14px 28px;border-radius:var(--r);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s,box-shadow .2s}
-.btn-fill:hover{background:var(--amber-b);transform:translateY(-2px);box-shadow:0 10px 28px rgba(240,128,48,.32)}
+.btn-fill{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(120deg,var(--amber),var(--amber-b));color:var(--ink);text-decoration:none;padding:14px 28px;border-radius:var(--r);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:filter .2s,transform .15s,box-shadow .2s;box-shadow:0 8px 22px rgba(245,148,46,.22)}
+.btn-fill:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 14px 34px rgba(245,148,46,.4)}
 .btn-out{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);text-decoration:none;padding:13px 27px;border:1px solid var(--border-h);border-radius:var(--r);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:border-color .2s,color .2s,transform .15s}
 .btn-out:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
 .hero-quick{display:flex;gap:28px;flex-wrap:wrap}
@@ -130,7 +135,7 @@ section{padding:110px 60px}
 .about-quote{font-family:'Caveat',cursive;font-size:1.18rem;color:var(--amber);background:var(--ag);border:1px solid rgba(240,128,48,.2);border-radius:var(--r);padding:18px 22px;margin-top:26px;line-height:1.55}
 .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
 .stat-box{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:26px 18px;text-align:center;transition:border-color .25s,transform .25s,box-shadow .25s;cursor:default}
-.stat-box:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.5)}
+.stat-box:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.5),var(--glow-amber)}
 .stat-n{font-family:'Syne',sans-serif;font-size:2.6rem;font-weight:800;color:var(--amber);display:block;line-height:1;letter-spacing:-.03em;margin-bottom:6px}
 .stat-l{font-size:.68rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--dim)}
 .domains-box{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:20px}
@@ -191,7 +196,7 @@ section{padding:110px 60px}
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
 .proj-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s,opacity .4s;position:relative}
 .proj-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--blue));opacity:0;transition:opacity .25s}
-.proj-card:hover{border-color:var(--border-h);transform:translateY(-6px);box-shadow:0 20px 56px rgba(0,0,0,.6)}
+.proj-card:hover{border-color:var(--border-h);transform:translateY(-6px);box-shadow:0 20px 56px rgba(0,0,0,.6),var(--glow-blue)}
 .proj-card:hover::after{opacity:1}
 .proj-card.hidden{opacity:0;pointer-events:none;transform:scale(.96) translateY(8px)}
 .proj-body{padding:26px}
@@ -206,18 +211,29 @@ section{padding:110px 60px}
 .ptag{font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--surf2);border:1px solid var(--border);color:var(--dim);padding:3px 10px;border-radius:20px}
 
 /* ── PUBLICATIONS ── */
-#publications{background:var(--ink)}
-.pub-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start}
-.pub-cover{background:linear-gradient(160deg,#0f2027,#203a43 55%,#2c5364);border:1px solid var(--border-h);border-radius:var(--r);padding:30px 18px;text-align:center;color:var(--amber-b);font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;line-height:1.6;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:transform .25s,box-shadow .25s}
-.pub-cover:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(0,0,0,.6)}
-.pub-cover-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
-.pub-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:border-color .25s,transform .25s,box-shadow .25s}
-.pub-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,.55)}
-.pub-meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--amber);letter-spacing:.1em;margin-bottom:12px;text-transform:uppercase}
+#publications{background:var(--ink);position:relative;overflow:hidden}
+#publications::before{content:'';position:absolute;top:10%;left:-8%;width:40%;height:60%;background:radial-gradient(circle,rgba(245,148,46,.1),transparent 65%);pointer-events:none}
+.pub-grid{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start;position:relative;z-index:1}
+.pub-cover{position:relative;border-radius:8px;isolation:isolate;transition:transform .3s cubic-bezier(.2,.8,.2,1);cursor:pointer}
+.pub-cover::before{content:'';position:absolute;inset:-3px;border-radius:10px;background:linear-gradient(135deg,var(--amber),var(--blue) 60%,var(--amber-b));opacity:.55;filter:blur(14px);z-index:-1;transition:opacity .3s}
+.pub-cover:hover{transform:translateY(-6px) scale(1.015)}
+.pub-cover:hover::before{opacity:.9}
+.pub-cover-frame{position:relative;border-radius:7px;overflow:hidden;border:1px solid var(--border-h);box-shadow:0 24px 60px rgba(0,0,0,.65);background:var(--surf)}
+.pub-cover-frame img{display:block;width:100%;height:auto;transition:transform .5s ease}
+.pub-cover:hover .pub-cover-frame img{transform:scale(1.05)}
+.pub-cover-badge{position:absolute;top:10px;left:10px;background:rgba(8,11,16,.72);backdrop-filter:blur(6px);border:1px solid var(--border-h);color:var(--amber-b);font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:20px}
+.pub-cover-ribbon{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(8,11,16,.92),transparent);padding:26px 12px 12px;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.1em;color:var(--amber-b);text-align:center}
+.pub-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:border-color .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.pub-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--blue));opacity:.7}
+.pub-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,.55),var(--glow-amber)}
+.pub-meta{display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--amber);letter-spacing:.1em;margin-bottom:12px;text-transform:uppercase}
+.pub-meta-sep{color:var(--dim)}
 .pub-title{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:var(--text);margin-bottom:14px;letter-spacing:-.02em}
 .pub-desc{font-size:.9rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px}
 .pub-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-@media (max-width:700px){.pub-grid{grid-template-columns:1fr}.pub-cover{max-width:220px;margin:0 auto}}
+.pub-btn-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.pub-filesize{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--dim)}
+@media (max-width:700px){.pub-grid{grid-template-columns:1fr}.pub-cover{max-width:260px;margin:0 auto}}
 
 /* ── VOLUNTEER ── */
 #volunteer{background:var(--ink)}
@@ -433,11 +449,14 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
     <h2 class="sec-title">Published <em>research</em></h2>
     <div class="pub-grid">
       <div class="pub-cover reveal-left">
-        DEFEND · DETECT · RESPOND · RESILIENT
-        <div class="pub-cover-title">Modern Cyber Warfare &amp; Threat Intelligence Handbook</div>
+        <div class="pub-cover-frame">
+          <img src="book-cover.jpg" alt="Modern Cyber Warfare &amp; Threat Intelligence Handbook — book cover" loading="lazy" width="680" height="962"/>
+          <span class="pub-cover-badge">First Edition</span>
+          <div class="pub-cover-ribbon">DEFEND · DETECT · RESPOND · RESILIENT</div>
+        </div>
       </div>
       <div class="pub-card reveal d1">
-        <div class="pub-meta">First Edition · 2026</div>
+        <div class="pub-meta">First Edition <span class="pub-meta-sep">·</span> 2026 <span class="pub-meta-sep">·</span> PDF</div>
         <p class="pub-title">Modern Cyber Warfare &amp; Threat Intelligence Handbook</p>
         <p class="pub-desc">A technical analysis of Russia's cyber operations against Ukraine (2022–2023), built on CERT-UA analytical reporting. Covers the cyber kill chain, the intelligence cycle, threat-actor profiling (Gamaredon, Sandworm, and GRU/FSB/SVR-linked activity), and a full MITRE ATT&amp;CK-mapped detection engineering guide for SOC analysts, DFIR teams, and threat intel practitioners.</p>
         <div class="pub-tags">
@@ -446,7 +465,10 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
           <span class="ptag">DFIR</span>
           <span class="ptag">SOC</span>
         </div>
-        <a href="Modern_Cyber_Warfare_Threat_Intelligence_Handbook.pdf" target="_blank" rel="noopener" class="btn-fill">Read the handbook ↓</a>
+        <div class="pub-btn-row">
+          <a href="Modern-Cyber-Warfare-Threat-Intelligence-Handbook.pdf" target="_blank" rel="noopener" class="btn-fill">Read the handbook ↓</a>
+          <span class="pub-filesize">PDF · 12.5 MB</span>
+        </div>
       </div>
     </div>
   </div>
