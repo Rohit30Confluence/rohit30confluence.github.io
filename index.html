@@ -4,8 +4,31 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Rohit Dinde · dr.confluence</title>
+<meta name="description" content="Rohit Dinde — cybersecurity engineer and open source builder. Threat detection, SOC automation, and a published cyber warfare threat intelligence handbook."/>
+<meta property="og:title" content="Rohit Dinde · dr.confluence"/>
+<meta property="og:description" content="Cybersecurity engineer and open source builder — threat detection, SOC automation, published threat intelligence research."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://rohit30confluence.github.io/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080B10'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23F08030' font-family='sans-serif' font-weight='800'%3ER%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rohit Dattatray Dinde",
+  "alternateName": "dr.confluence",
+  "url": "https://rohit30confluence.github.io/",
+  "sameAs": [
+    "https://github.com/Rohit30Confluence",
+    "https://www.linkedin.com/in/rohitdinde/"
+  ],
+  "jobTitle": "Cybersecurity Engineer",
+  "email": "mailto:rohitdinde30@gmail.com",
+  "knowsAbout": ["Cybersecurity", "Threat Detection", "SOC Automation", "MITRE ATT&CK", "Threat Intelligence", "AI Security"]
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -68,6 +91,9 @@ nav.scrolled{background:rgba(8,11,16,.88);backdrop-filter:blur(20px);border-bott
 @keyframes blink{0%,100%{border-color:var(--amber)}50%{border-color:transparent}}
 .hero-desc{font-size:1.05rem;font-weight:300;color:var(--mid);max-width:560px;line-height:1.85;margin-bottom:48px}
 .hero-desc em{color:var(--text);font-style:normal;font-weight:500}
+.now-badge{display:inline-flex;align-items:center;gap:9px;font-size:.78rem;font-weight:500;color:var(--mid);background:var(--surf);border:1px solid var(--border);border-radius:20px;padding:8px 16px;margin-bottom:36px}
+.now-dot{width:7px;height:7px;border-radius:50%;background:var(--sage);flex-shrink:0;box-shadow:0 0 0 3px var(--sage2);animation:nowpulse 2s ease-in-out infinite}
+@keyframes nowpulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
 .btn-fill{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--ink);text-decoration:none;padding:14px 28px;border-radius:var(--r);font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .15s,box-shadow .2s}
 .btn-fill:hover{background:var(--amber-b);transform:translateY(-2px);box-shadow:0 10px 28px rgba(240,128,48,.32)}
@@ -114,7 +140,7 @@ section{padding:110px 60px}
 .dom-tag:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-2px)}
 
 /* ── CAREER TIMELINE ── */
-#career{background:var(--ink)}
+#career{background:var(--ink2)}
 .tl{position:relative;max-width:900px;margin:0 auto}
 .tl-spine{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--border) 8%,var(--border) 92%,transparent);transform:translateX(-50%)}
 .tl-item{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;margin-bottom:42px;align-items:start}
@@ -137,7 +163,7 @@ section{padding:110px 60px}
 .tl-card.open .tl-expand{max-height:200px}
 
 /* ── SKILLS ── */
-#skills{background:var(--ink2)}
+#skills{background:var(--ink)}
 .skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .sk-group{margin-bottom:36px}
 .sk-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
@@ -158,7 +184,7 @@ section{padding:110px 60px}
 .sk-tag.n{background:var(--surf2);border-color:var(--border);color:var(--mid)}
 
 /* ── PROJECTS ── */
-#projects{background:var(--ink)}
+#projects{background:var(--ink2)}
 .proj-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
 .pf{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 18px;border-radius:2px;border:1px solid var(--border);background:transparent;color:var(--mid);cursor:pointer;transition:all .2s}
 .pf:hover,.pf.active{background:var(--amber);border-color:var(--amber);color:var(--ink)}
@@ -179,8 +205,22 @@ section{padding:110px 60px}
 .proj-tags{display:flex;flex-wrap:wrap;gap:6px}
 .ptag{font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--surf2);border:1px solid var(--border);color:var(--dim);padding:3px 10px;border-radius:20px}
 
+/* ── PUBLICATIONS ── */
+#publications{background:var(--ink)}
+.pub-grid{display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:start}
+.pub-cover{background:linear-gradient(160deg,#0f2027,#203a43 55%,#2c5364);border:1px solid var(--border-h);border-radius:var(--r);padding:30px 18px;text-align:center;color:var(--amber-b);font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;line-height:1.6;box-shadow:0 20px 50px rgba(0,0,0,.5);transition:transform .25s,box-shadow .25s}
+.pub-cover:hover{transform:translateY(-4px);box-shadow:0 26px 60px rgba(0,0,0,.6)}
+.pub-cover-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1.05rem;color:#fff;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
+.pub-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:32px;transition:border-color .25s,transform .25s,box-shadow .25s}
+.pub-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:0 20px 56px rgba(0,0,0,.55)}
+.pub-meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--amber);letter-spacing:.1em;margin-bottom:12px;text-transform:uppercase}
+.pub-title{font-family:'Syne',sans-serif;font-size:1.35rem;font-weight:800;color:var(--text);margin-bottom:14px;letter-spacing:-.02em}
+.pub-desc{font-size:.9rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:20px}
+.pub-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+@media (max-width:700px){.pub-grid{grid-template-columns:1fr}.pub-cover{max-width:220px;margin:0 auto}}
+
 /* ── VOLUNTEER ── */
-#volunteer{background:var(--ink2)}
+#volunteer{background:var(--ink)}
 .impact-banner{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:48px;border-radius:var(--r);overflow:hidden}
 .imp-c{background:var(--surf);padding:32px 24px;text-align:center;transition:background .25s,transform .25s;cursor:default}
 .imp-c:hover{background:var(--surf2)}
@@ -196,7 +236,7 @@ section{padding:110px 60px}
 .vol-desc{font-size:.83rem;font-weight:300;color:var(--mid);line-height:1.65}
 
 /* ── HOBBIES ── */
-#hobbies{background:var(--ink)}
+#hobbies{background:var(--ink2)}
 .hob-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
 .hob-card{background:var(--surf);border:1px solid var(--border);border-radius:var(--r);padding:28px 22px;transition:border-color .25s,transform .25s,box-shadow .25s,background .25s;cursor:default;position:relative;overflow:hidden}
 .hob-card::before{content:attr(data-emoji);position:absolute;top:-8px;right:12px;font-size:4.5rem;opacity:.07;pointer-events:none;transition:opacity .3s,transform .3s}
@@ -208,23 +248,29 @@ section{padding:110px 60px}
 .hob-desc{font-size:.82rem;font-weight:300;color:var(--mid);line-height:1.65}
 .hob-note{font-family:'Caveat',cursive;font-size:.92rem;color:var(--amber);display:block;margin-top:10px}
 
+/* ── TERMINAL ── */
+#terminal{background:var(--ink)}
+.term-window{max-width:720px;margin:0 auto;background:#000;border:1px solid var(--border-h);border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.term-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#0d1018;border-bottom:1px solid var(--border)}
+.term-dot{width:11px;height:11px;border-radius:50%}
+.term-dot.r{background:#ff5f56}.term-dot.y{background:#ffbd2e}.term-dot.g{background:#27c93f}
+.term-path{margin-left:10px;font-size:.7rem;color:var(--dim);font-family:'JetBrains Mono',monospace}
+.term-body{padding:18px;min-height:140px;max-height:280px;overflow-y:auto;font-size:.82rem;color:#8fe38f;line-height:1.85;font-family:'JetBrains Mono',monospace}
+.term-line{white-space:pre-wrap;word-break:break-word}
+.term-hl{color:var(--amber)}
+.term-input-row{display:flex;align-items:center;gap:8px;padding:12px 18px;border-top:1px solid var(--border)}
+.term-prompt{color:var(--amber);font-family:'JetBrains Mono',monospace;font-size:.82rem}
+.term-input{flex:1;background:transparent;border:none;outline:none;color:#8fe38f;font-family:'JetBrains Mono',monospace;font-size:.82rem}
+
 /* ── CONTACT ── */
 #contact{background:var(--surf);border-top:1px solid var(--border)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:90px;align-items:start}
-.contact-intro{font-size:1rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:36px}
+.contact-grid{max-width:640px}
+.contact-intro{font-size:1rem;font-weight:300;color:var(--mid);line-height:1.85;margin-bottom:32px}
+.contact-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
 .c-links{display:flex;flex-direction:column;gap:10px}
 .c-link{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--surf2);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;font-size:.86rem;color:var(--mid);transition:border-color .2s,color .2s,transform .18s}
 .c-link:hover{border-color:var(--amber);color:var(--amber);transform:translateX(6px)}
 .c-ico{width:34px;height:34px;background:var(--ag);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--amber);flex-shrink:0}
-.cf-group{margin-bottom:16px}
-.cf-label{display:block;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
-.cf-input,.cf-area{width:100%;background:var(--surf2);border:1px solid var(--border);border-radius:3px;color:var(--text);font-family:'Inter',sans-serif;font-size:.9rem;font-weight:300;padding:13px 16px;outline:none;transition:border-color .2s,box-shadow .2s}
-.cf-input:focus,.cf-area:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(240,128,48,.1)}
-.cf-input::placeholder,.cf-area::placeholder{color:var(--dim)}
-.cf-area{resize:vertical;min-height:130px}
-.cf-btn{width:100%;background:var(--amber);color:var(--ink);border:none;border-radius:3px;padding:15px;font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;margin-top:6px}
-.cf-btn:hover{background:var(--amber-b);transform:translateY(-2px);box-shadow:0 10px 28px rgba(240,128,48,.32)}
-.cf-btn.sending{opacity:.7;pointer-events:none}
 
 /* FOOTER */
 footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
@@ -242,7 +288,6 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
   .about-grid{grid-template-columns:1fr;gap:48px}
   .skills-layout{grid-template-columns:1fr}
   .vol-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr;gap:48px}
   .tl-spine{left:22px}
   .tl-item{grid-template-columns:44px 1fr;gap:0}
   .tl-item:nth-child(odd) .tl-card{grid-column:2;text-align:left}
@@ -287,11 +332,13 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
   </a>
   <ul class="nav-links">
     <li><a href="#about" data-section="about">About</a></li>
-    <li><a href="#career" data-section="career">Journey</a></li>
-    <li><a href="#skills" data-section="skills">Skills</a></li>
+    <li><a href="#publications" data-section="publications">Writing</a></li>
     <li><a href="#projects" data-section="projects">Projects</a></li>
+    <li><a href="#skills" data-section="skills">Skills</a></li>
+    <li><a href="#career" data-section="career">Journey</a></li>
     <li><a href="#volunteer" data-section="volunteer">Impact</a></li>
     <li><a href="#hobbies" data-section="hobbies">Life</a></li>
+    <li><a href="#terminal" data-section="terminal">$_</a></li>
     <li><a href="#contact" data-section="contact">Connect</a></li>
   </ul>
   <button id="menu-btn">☰</button>
@@ -301,11 +348,13 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
 <div id="mob-menu">
   <button id="mob-close">✕</button>
   <a href="#about" onclick="closeMob()">About</a>
-  <a href="#career" onclick="closeMob()">Journey</a>
-  <a href="#skills" onclick="closeMob()">Skills</a>
+  <a href="#publications" onclick="closeMob()">Writing</a>
   <a href="#projects" onclick="closeMob()">Projects</a>
+  <a href="#skills" onclick="closeMob()">Skills</a>
+  <a href="#career" onclick="closeMob()">Journey</a>
   <a href="#volunteer" onclick="closeMob()">Impact</a>
   <a href="#hobbies" onclick="closeMob()">Life</a>
+  <a href="#terminal" onclick="closeMob()">$_</a>
   <a href="#contact" onclick="closeMob()">Connect</a>
 </div>
 
@@ -320,6 +369,7 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
       <span id="typing"></span>
     </div>
     <p class="hero-desc">From <em>zero to here</em> — built by work, shaped by curiosity. Six years of living engineering while earning it. From electricity to AI, from scripting to systems, from operations to <em>building from scratch</em>.</p>
+    <div class="now-badge"><span class="now-dot"></span>Right now: sharpening detection engineering &amp; exploring AI/LLM security</div>
     <div class="hero-btns">
       <a href="#projects" class="btn-fill">View my work ↓</a>
       <a href="#contact" class="btn-out">Let's connect</a>
@@ -328,6 +378,7 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
       <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener" class="hq"><span class="hq-icon">⌥</span> GitHub</a>
       <a href="https://www.linkedin.com/in/rohitdinde/" target="_blank" rel="noopener" class="hq"><span class="hq-icon">in</span> LinkedIn</a>
       <a href="mailto:rohitdinde30@gmail.com" class="hq"><span class="hq-icon">✉</span> Email</a>
+      <a href="Resume.pdf" target="_blank" rel="noopener" class="hq"><span class="hq-icon">📄</span> Resume</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -375,117 +426,27 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
   </div>
 </section>
 
-<!-- CAREER -->
-<section id="career">
+<!-- PUBLICATIONS -->
+<section id="publications">
   <div class="max-w">
-    <div class="sec-eyebrow">The journey</div>
-    <h2 class="sec-title">How I got <em>here</em></h2>
-    <p style="font-size:.82rem;color:var(--dim);text-align:center;margin-top:-44px;margin-bottom:52px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em">// click any card to expand</p>
-    <div class="tl">
-      <div class="tl-spine"></div>
-
-      <div class="tl-item reveal">
-        <div class="tl-card" onclick="toggleTl(this)">
-          <span class="tl-yr">2019 – present</span>
-          <p class="tl-role">Engineer & Open Source Contributor</p>
-          <p class="tl-org">Operations → Services → Founding Member</p>
-          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Worked across operations, services, and founding teams. Helped catch bad actors, resolved complex system issues, and contributed to open source community problem-solving. Built everything from scratch — no templates, no shortcuts.</p></div>
-        </div>
-        <div class="tl-mid"><div class="tl-dot"></div></div>
-        <div class="tl-empty"></div>
+    <div class="sec-eyebrow">What I've written</div>
+    <h2 class="sec-title">Published <em>research</em></h2>
+    <div class="pub-grid">
+      <div class="pub-cover reveal-left">
+        DEFEND · DETECT · RESPOND · RESILIENT
+        <div class="pub-cover-title">Modern Cyber Warfare &amp; Threat Intelligence Handbook</div>
       </div>
-
-      <div class="tl-item reveal d1">
-        <div class="tl-empty"></div>
-        <div class="tl-mid"><div class="tl-dot"></div></div>
-        <div class="tl-card" onclick="toggleTl(this)">
-          <span class="tl-yr">2023 – 2025</span>
-          <p class="tl-role">B.E. Computer Engineering</p>
-          <p class="tl-org">Savitribai Phule Pune University</p>
-          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Six years, not four — because I lived it in parallel with the real world. Covered ground across electronics, civil, mechanical, biotech, chemical, IT, automation and AI. Built strong, wide, and from scratch.</p></div>
+      <div class="pub-card reveal d1">
+        <div class="pub-meta">First Edition · 2026</div>
+        <p class="pub-title">Modern Cyber Warfare &amp; Threat Intelligence Handbook</p>
+        <p class="pub-desc">A technical analysis of Russia's cyber operations against Ukraine (2022–2023), built on CERT-UA analytical reporting. Covers the cyber kill chain, the intelligence cycle, threat-actor profiling (Gamaredon, Sandworm, and GRU/FSB/SVR-linked activity), and a full MITRE ATT&amp;CK-mapped detection engineering guide for SOC analysts, DFIR teams, and threat intel practitioners.</p>
+        <div class="pub-tags">
+          <span class="ptag">Threat Intelligence</span>
+          <span class="ptag">MITRE ATT&amp;CK</span>
+          <span class="ptag">DFIR</span>
+          <span class="ptag">SOC</span>
         </div>
-      </div>
-
-      <div class="tl-item reveal d2">
-        <div class="tl-card" onclick="toggleTl(this)">
-          <span class="tl-yr">2019</span>
-          <p class="tl-role">HSC — Science Stream</p>
-          <p class="tl-org">Maharashtra State Board</p>
-          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Physics, Mathematics, Chemistry, Biology. Studied the work and lives of Nobel laureates, discoverers, builders. Learned where every great idea actually came from. That curiosity never left.</p></div>
-        </div>
-        <div class="tl-mid"><div class="tl-dot"></div></div>
-        <div class="tl-empty"></div>
-      </div>
-
-      <div class="tl-item reveal d3">
-        <div class="tl-empty"></div>
-        <div class="tl-mid"><div class="tl-dot"></div></div>
-        <div class="tl-card" onclick="toggleTl(this)">
-          <span class="tl-yr">2017</span>
-          <p class="tl-role">SSC</p>
-          <p class="tl-org">Maharashtra State Board</p>
-          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Where the foundation was laid. The beginning of the road. Everything that came after started here.</p></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="max-w">
-    <div class="sec-eyebrow">What I bring</div>
-    <h2 class="sec-title">Skills &amp; <em>strengths</em></h2>
-    <div class="skills-layout">
-      <div>
-        <div class="sk-group reveal">
-          <p class="sk-label">Technical proficiency</p>
-          <div class="sk-bars">
-            <div class="sk-row"><div class="sk-name-row"><span>Systems Thinking</span><span class="sk-pct">90%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="90"></div></div></div>
-            <div class="sk-row"><div class="sk-name-row"><span>Network & Security</span><span class="sk-pct">85%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="85"></div></div></div>
-            <div class="sk-row"><div class="sk-name-row"><span>Automation & Scripting</span><span class="sk-pct">80%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill blue" data-w="80"></div></div></div>
-            <div class="sk-row"><div class="sk-name-row"><span>AI & Machine Learning</span><span class="sk-pct">72%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill blue" data-w="72"></div></div></div>
-            <div class="sk-row"><div class="sk-name-row"><span>Open Source Contribution</span><span class="sk-pct">88%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill sage" data-w="88"></div></div></div>
-          </div>
-        </div>
-        <div class="sk-group reveal d2">
-          <p class="sk-label">People & leadership</p>
-          <div class="sk-bars">
-            <div class="sk-row"><div class="sk-name-row"><span>Team Leadership</span><span class="sk-pct">85%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill sage" data-w="85"></div></div></div>
-            <div class="sk-row"><div class="sk-name-row"><span>Problem Solving</span><span class="sk-pct">92%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="92"></div></div></div>
-            <div class="sk-row"><div class="sk-name-row"><span>Cross-disciplinary thinking</span><span class="sk-pct">95%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="95"></div></div></div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="sk-group reveal d1">
-          <p class="sk-label">Technologies & tools</p>
-          <div class="sk-tags">
-            <span class="sk-tag a">Python</span>
-            <span class="sk-tag a">Networking</span>
-            <span class="sk-tag a">Security</span>
-            <span class="sk-tag b">AI / ML</span>
-            <span class="sk-tag b">Automation</span>
-            <span class="sk-tag b">Cloud (DigitalOcean)</span>
-            <span class="sk-tag s">Open Source</span>
-            <span class="sk-tag s">Git</span>
-            <span class="sk-tag n">Linux</span>
-            <span class="sk-tag n">Log Analysis</span>
-            <span class="sk-tag n">Operations</span>
-          </div>
-        </div>
-        <div class="sk-group reveal d3" style="margin-top:32px">
-          <p class="sk-label">Mindset & approach</p>
-          <div class="sk-tags">
-            <span class="sk-tag a">Ownership</span>
-            <span class="sk-tag a">Build from scratch</span>
-            <span class="sk-tag s">Work · Earn · Learn</span>
-            <span class="sk-tag s">Community-first</span>
-            <span class="sk-tag b">Voluntary living</span>
-            <span class="sk-tag n">Cross-disciplinary</span>
-          </div>
-        </div>
+        <a href="Modern_Cyber_Warfare_Threat_Intelligence_Handbook.pdf" target="_blank" rel="noopener" class="btn-fill">Read the handbook ↓</a>
       </div>
     </div>
   </div>
@@ -558,6 +519,122 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
   </div>
 </section>
 
+<!-- SKILLS -->
+<section id="skills">
+  <div class="max-w">
+    <div class="sec-eyebrow">What I bring</div>
+    <h2 class="sec-title">Skills &amp; <em>strengths</em></h2>
+    <div class="skills-layout">
+      <div>
+        <div class="sk-group reveal">
+          <p class="sk-label">Technical proficiency</p>
+          <div class="sk-bars">
+            <div class="sk-row"><div class="sk-name-row"><span>Systems Thinking</span><span class="sk-pct">90%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="90"></div></div></div>
+            <div class="sk-row"><div class="sk-name-row"><span>Network & Security</span><span class="sk-pct">85%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="85"></div></div></div>
+            <div class="sk-row"><div class="sk-name-row"><span>Automation & Scripting</span><span class="sk-pct">80%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill blue" data-w="80"></div></div></div>
+            <div class="sk-row"><div class="sk-name-row"><span>AI & Machine Learning</span><span class="sk-pct">72%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill blue" data-w="72"></div></div></div>
+            <div class="sk-row"><div class="sk-name-row"><span>Open Source Contribution</span><span class="sk-pct">88%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill sage" data-w="88"></div></div></div>
+          </div>
+        </div>
+        <div class="sk-group reveal d2">
+          <p class="sk-label">People & leadership</p>
+          <div class="sk-bars">
+            <div class="sk-row"><div class="sk-name-row"><span>Team Leadership</span><span class="sk-pct">85%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill sage" data-w="85"></div></div></div>
+            <div class="sk-row"><div class="sk-name-row"><span>Problem Solving</span><span class="sk-pct">92%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="92"></div></div></div>
+            <div class="sk-row"><div class="sk-name-row"><span>Cross-disciplinary thinking</span><span class="sk-pct">95%</span></div><div class="sk-bar-bg"><div class="sk-bar-fill" data-w="95"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sk-group reveal d1">
+          <p class="sk-label">Technologies & tools</p>
+          <div class="sk-tags">
+            <span class="sk-tag a">Python</span>
+            <span class="sk-tag a">Networking</span>
+            <span class="sk-tag a">Security</span>
+            <span class="sk-tag b">AI / ML</span>
+            <span class="sk-tag b">Automation</span>
+            <span class="sk-tag b">Cloud (DigitalOcean)</span>
+            <span class="sk-tag s">Open Source</span>
+            <span class="sk-tag s">Git</span>
+            <span class="sk-tag n">Linux</span>
+            <span class="sk-tag n">Log Analysis</span>
+            <span class="sk-tag n">Operations</span>
+          </div>
+        </div>
+        <div class="sk-group reveal d3" style="margin-top:32px">
+          <p class="sk-label">Mindset & approach</p>
+          <div class="sk-tags">
+            <span class="sk-tag a">Ownership</span>
+            <span class="sk-tag a">Build from scratch</span>
+            <span class="sk-tag s">Work · Earn · Learn</span>
+            <span class="sk-tag s">Community-first</span>
+            <span class="sk-tag b">Voluntary living</span>
+            <span class="sk-tag n">Cross-disciplinary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="max-w">
+    <div class="sec-eyebrow">The journey</div>
+    <h2 class="sec-title">How I got <em>here</em></h2>
+    <p style="font-size:.82rem;color:var(--dim);text-align:center;margin-top:-44px;margin-bottom:52px;font-family:'JetBrains Mono',monospace;letter-spacing:.06em">// click any card to expand</p>
+    <div class="tl">
+      <div class="tl-spine"></div>
+
+      <div class="tl-item reveal">
+        <div class="tl-card" onclick="toggleTl(this)">
+          <span class="tl-yr">2019 – present</span>
+          <p class="tl-role">Engineer & Open Source Contributor</p>
+          <p class="tl-org">Operations → Services → Founding Member</p>
+          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Worked across operations, services, and founding teams. Helped catch bad actors, resolved complex system issues, and contributed to open source community problem-solving. Built everything from scratch — no templates, no shortcuts.</p></div>
+        </div>
+        <div class="tl-mid"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item reveal d1">
+        <div class="tl-empty"></div>
+        <div class="tl-mid"><div class="tl-dot"></div></div>
+        <div class="tl-card" onclick="toggleTl(this)">
+          <span class="tl-yr">2023 – 2025</span>
+          <p class="tl-role">B.E. Computer Engineering</p>
+          <p class="tl-org">Savitribai Phule Pune University</p>
+          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Six years, not four — because I lived it in parallel with the real world. Covered ground across electronics, civil, mechanical, biotech, chemical, IT, automation and AI. Built strong, wide, and from scratch.</p></div>
+        </div>
+      </div>
+
+      <div class="tl-item reveal d2">
+        <div class="tl-card" onclick="toggleTl(this)">
+          <span class="tl-yr">2019</span>
+          <p class="tl-role">HSC — Science Stream</p>
+          <p class="tl-org">Maharashtra State Board</p>
+          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Physics, Mathematics, Chemistry, Biology. Studied the work and lives of Nobel laureates, discoverers, builders. Learned where every great idea actually came from. That curiosity never left.</p></div>
+        </div>
+        <div class="tl-mid"><div class="tl-dot"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <div class="tl-item reveal d3">
+        <div class="tl-empty"></div>
+        <div class="tl-mid"><div class="tl-dot"></div></div>
+        <div class="tl-card" onclick="toggleTl(this)">
+          <span class="tl-yr">2017</span>
+          <p class="tl-role">SSC</p>
+          <p class="tl-org">Maharashtra State Board</p>
+          <div class="tl-expand"><p class="tl-desc" style="margin-top:10px">Where the foundation was laid. The beginning of the road. Everything that came after started here.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- VOLUNTEER -->
 <section id="volunteer">
   <div class="max-w">
@@ -609,25 +686,40 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:28px 60p
   </div>
 </section>
 
+<!-- TERMINAL -->
+<section id="terminal">
+  <div class="max-w">
+    <div class="sec-eyebrow">For the curious</div>
+    <h2 class="sec-title">Poke the <em>terminal</em></h2>
+    <div class="term-window reveal">
+      <div class="term-bar"><span class="term-dot r"></span><span class="term-dot y"></span><span class="term-dot g"></span><span class="term-path">rohit@dr.confluence:~$</span></div>
+      <div class="term-body" id="term-body">
+        <div class="term-line">Type <span class="term-hl">help</span> to get started.</div>
+      </div>
+      <div class="term-input-row">
+        <span class="term-prompt">&gt;</span>
+        <input id="term-input" class="term-input" type="text" autocomplete="off" spellcheck="false" placeholder="try: whoami"/>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="max-w">
     <div class="sec-eyebrow">Say hello</div>
     <h2 class="sec-title">Let's <em>connect</em></h2>
-    <div class="contact-grid">
-      <div class="reveal">
-        <p class="contact-intro">Whether it's a project, an open source collaboration, a conversation about systems and security, or something bigger — I'm here. Drop a message and I'll get back to you.</p>
-        <div class="c-links">
-          <a href="mailto:rohitdinde30@gmail.com" class="c-link"><div class="c-ico">✉</div>rohitdinde30@gmail.com</a>
-          <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener" class="c-link"><div class="c-ico">gh</div>github.com/Rohit30Confluence</a>
-          <a href="https://www.linkedin.com/in/rohitdinde/" target="_blank" rel="noopener" class="c-link"><div class="c-ico">in</div>linkedin.com/in/rohitdinde</a>
-        </div>
+    <div class="contact-grid reveal">
+      <p class="contact-intro">Whether it's a project, an open source collaboration, a conversation about systems and security, or something bigger — pick whichever's easiest. No forms, no waiting — it goes straight to me.</p>
+      <div class="contact-cta">
+        <a href="mailto:rohitdinde30@gmail.com?subject=Let's%20connect" class="btn-fill">✉ Email me directly</a>
+        <a href="https://www.linkedin.com/in/rohitdinde/" target="_blank" rel="noopener" class="btn-out">in Message on LinkedIn</a>
+        <a href="Resume.pdf" target="_blank" rel="noopener" class="btn-out">📄 Download resume</a>
       </div>
-      <div class="reveal d2">
-        <div class="cf-group"><label class="cf-label">Your name</label><input class="cf-input" id="cf-name" type="text" placeholder="How should I address you?"/></div>
-        <div class="cf-group"><label class="cf-label">Email</label><input class="cf-input" id="cf-email" type="email" placeholder="Where can I write back?"/></div>
-        <div class="cf-group"><label class="cf-label">Message</label><textarea class="cf-area" id="cf-msg" placeholder="What's on your mind?"></textarea></div>
-        <button class="cf-btn" id="cf-btn" onclick="sendForm()">Send message →</button>
+      <div class="c-links">
+        <a href="mailto:rohitdinde30@gmail.com" class="c-link"><div class="c-ico">✉</div>rohitdinde30@gmail.com</a>
+        <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener" class="c-link"><div class="c-ico">gh</div>github.com/Rohit30Confluence</a>
+        <a href="https://www.linkedin.com/in/rohitdinde/" target="_blank" rel="noopener" class="c-link"><div class="c-ico">in</div>linkedin.com/in/rohitdinde</a>
       </div>
     </div>
   </div>
@@ -646,7 +738,7 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 function animRing(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
 animRing();
-document.querySelectorAll('a,button,.proj-card,.tl-card,.stat-box,.hob-card').forEach(el=>{
+document.querySelectorAll('a,button,.proj-card,.tl-card,.stat-box,.hob-card,.pub-card,.pub-cover').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(240,128,48,.7)'});
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(240,128,48,.4)'});
 });
@@ -748,17 +840,40 @@ document.querySelectorAll('.pf').forEach(btn=>{
   });
 });
 
-/* ── CONTACT FORM ── */
-function sendForm(){
-  const btn=document.getElementById('cf-btn');
-  const n=document.getElementById('cf-name').value.trim();
-  const e=document.getElementById('cf-email').value.trim();
-  const m=document.getElementById('cf-msg').value.trim();
-  if(!n||!e||!m){btn.textContent='Please fill all fields';btn.style.background='#884020';setTimeout(()=>{btn.textContent='Send message →';btn.style.background=''},2200);return}
-  btn.textContent='Sending…';btn.classList.add('sending');
-  setTimeout(()=>{btn.textContent='✓ Sent! I\'ll be in touch';btn.classList.remove('sending');btn.style.background='var(--sage)';btn.style.color='#fff';
-    setTimeout(()=>{btn.textContent='Send message →';btn.style.background='';btn.style.color='';document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-msg').value=''},4000)},1800);
+/* ── TERMINAL EASTER EGG ── */
+const termBody=document.getElementById('term-body');
+const termInput=document.getElementById('term-input');
+const termCmds={
+  whoami:"rohit — cybersecurity engineer, open source builder, dr.confluence",
+  about:"6 years lived, not rushed. Threat detection, SOC automation, AI security — built from scratch, no templates.",
+  skills:"Python · Networking · Security · AI/ML · Automation · Git · Linux",
+  projects:"See the Projects section above ↑ — or github.com/Rohit30Confluence",
+  links:"github.com/Rohit30Confluence · linkedin.com/in/rohitdinde · rohitdinde30@gmail.com",
+  sudo:"nice try. permission denied ⚡"
+};
+function termPrint(text){
+  const l=document.createElement('div');
+  l.className='term-line';
+  l.innerHTML=text;
+  termBody.appendChild(l);
+  termBody.scrollTop=termBody.scrollHeight;
 }
+if(termInput){
+  termInput.addEventListener('keydown',e=>{
+    if(e.key!=='Enter')return;
+    const raw=termInput.value.trim();
+    if(!raw)return;
+    termPrint('<span style="color:var(--mid)">&gt; '+raw.replace(/</g,'&lt;')+'</span>');
+    const cmd=raw.toLowerCase();
+    if(cmd==='clear'){termBody.innerHTML='';}
+    else if(cmd==='help'){termPrint("Available: whoami, about, skills, projects, links, resume, clear");}
+    else if(cmd==='resume'){termPrint("Opening Resume.pdf…");window.open('Resume.pdf','_blank');}
+    else if(termCmds[cmd]){termPrint(termCmds[cmd]);}
+    else{termPrint("command not found: "+raw+" — try <span class='term-hl'>help</span>");}
+    termInput.value='';
+  });
+}
+
 </script>
 </body>
 </html>
