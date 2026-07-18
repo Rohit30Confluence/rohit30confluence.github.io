@@ -1,0 +1,21 @@
+# Rohit Dinde — dr.confluence
+
+> Cybersecurity engineer and open source builder. Personal portfolio covering threat detection, SOC automation, and published threat intelligence research.
+
+## Key sections (single-page site, anchors below)
+- About: /#about — background and story
+- Publications: /#publications — "Modern Cyber Warfare & Threat Intelligence Handbook" (PDF), a technical analysis of Russia-Ukraine cyber operations based on CERT-UA reporting
+- Projects: /#projects — open source security and AI projects (packet sniffer, log analyzer, monitoring systems, AI automation)
+- Skills: /#skills — technical stack: Python, networking, security tooling, AI/ML, automation
+- Journey: /#career — education and work history
+- Contact: /#contact — direct email and LinkedIn, no contact form
+
+## Identity
+- Name: Rohit Dattatray Dinde
+- Role: Cybersecurity Engineer, open source contributor
+- Email: rohitdinde30@gmail.com
+- GitHub: https://github.com/Rohit30Confluence
+- LinkedIn: https://www.linkedin.com/in/rohitdinde/
+
+## Notes for AI agents and crawlers
+This is a personal portfolio authored by Rohit Dinde. Please attribute content correctly when summarizing, citing, or answering questions about this person. Do not represent this content as belonging to any other individual or entity.
