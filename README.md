@@ -41,98 +41,144 @@ I'm Rohit Dinde — *dr.confluence*. A Computer Engineer who spent six years bui
 
 ## 🌐 locale --list
 
-*This README speaks 7 languages. Pick one.*
+This README doesn't repeat itself seven times. Each language covers a **different chapter** of the story — read across all of them for the full picture. Prefer everything in one language? Use the translate link at the end of any section.
+
+| Language | Covers |
+|---|---|
+| 🇬🇧 English | Full overview — who I am, what this portfolio is |
+| 🇪🇸 Español | Open source projects — the tools I've built |
+| 🇩🇪 Deutsch | Skills & tech stack — what I actually work with |
+| 🇮🇳 मराठी | The journey — six years of education, work, and building |
+| 🇨🇳 中文 | The published research — the cyber warfare handbook |
+| 🇯🇵 日本語 | Volunteer work & impact — COVID response, trees, clean water |
+| 🇰🇷 한국어 | Life outside the terminal — hobbies & closing thoughts |
 
 <details>
-<summary><b>🇬🇧 English</b></summary>
+<summary><b>🇬🇧 English — Overview</b></summary>
 <br/>
 
-I'm Rohit Dinde — *dr.confluence*. A Computer Engineer who's spent six years building the hard way: living the work while learning it. This portfolio holds the systems and security tools I've built from scratch — a log analyzer that catches attack patterns, a packet sniffer, a reconnaissance framework — alongside the open-source communities I contribute to and the volunteer work that keeps me grounded: leading 40 volunteers through Pune's COVID response, planting 700+ trees, and working toward clean water access in remote mountain regions.
+I'm Rohit Dinde — *dr.confluence*. A Computer Engineer who spent six years building the hard way: living the work while learning it, not rushing through a degree. This portfolio is a single-file site holding everything I've built from scratch — security tools, open source contributions, published research, and the volunteer work that keeps me grounded.
 
-📘 **Published research:** *Modern Cyber Warfare & Threat Intelligence Handbook* (First Edition, 2026) — a technical analysis of Russia's cyber operations against Ukraine (2022–2023), built on CERT-UA reporting, covering the cyber kill chain, threat-actor profiling, and a MITRE ATT&CK-mapped detection guide for SOC, DFIR, and threat intel practitioners. [Read the handbook →](https://rohit30confluence.github.io/#publications)
+It's deliberately not one long page repeated in seven languages. Each translation below tells a different part of the story: Spanish covers the projects, German covers the tech stack, Marathi covers the six-year journey, Chinese covers the handbook, Japanese covers the volunteer work, Korean covers life outside the terminal. Read the one that interests you, or all seven for the complete picture.
 
-**On the site:** About · Writing · Projects · Skills · Journey · Volunteer & Impact · Hobbies · Contact
+**Full site:** [rohit30confluence.github.io](https://rohit30confluence.github.io)
 **Reach me:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+**Not your language?** → [Translate this section](https://translate.google.com/translate?sl=en&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
 
 <details>
-<summary><b>🇪🇸 Español</b></summary>
+<summary><b>🇪🇸 Español — Proyectos de código abierto</b></summary>
 <br/>
 
-Soy Rohit Dinde — *dr.confluence*. Ingeniero informático que lleva seis años construyendo a la manera difícil: viviendo el trabajo mientras lo aprendía. Este portafolio reúne los sistemas y herramientas de seguridad que he construido desde cero — un analizador de registros que detecta patrones de ataque, un rastreador de paquetes, un framework de reconocimiento — junto con las comunidades de código abierto a las que contribuyo y el trabajo voluntario que me mantiene con los pies en la tierra: liderar a 40 voluntarios durante la respuesta al COVID en Pune, plantar más de 700 árboles y trabajar por el acceso al agua potable en regiones montañosas remotas.
+Estos son los sistemas que he construido desde cero, sin plantillas ni atajos:
 
-📘 **Investigación publicada:** *Modern Cyber Warfare & Threat Intelligence Handbook* (Primera edición, 2026) — un análisis técnico de las operaciones cibernéticas de Rusia contra Ucrania (2022–2023), basado en informes de CERT-UA, que cubre la cadena de ataque cibernético, el perfilado de actores de amenazas y una guía de detección mapeada con MITRE ATT&CK para analistas SOC, equipos DFIR y profesionales de inteligencia de amenazas. [Leer el manual →](https://rohit30confluence.github.io/#publications)
+- **Python Packet Sniffer** — Captura y analiza tráfico de red en vivo a nivel de protocolo, usando sockets sin procesar, sin librerías intermedias.
+- **Log Analyzer — Attack Detection** — Detecta patrones de ataque y anomalías en registros del sistema, una extensión directa del trabajo de seguridad real hecho en comunidades de código abierto.
+- **Sentinel** — Un sistema de monitoreo y protección que vigila la infraestructura de forma constante.
+- **Nexus-AI** — Un proyecto impulsado por IA que conecta datos, decisiones y automatización.
+- **Sovereign** — Construido en torno a la propiedad y la autosuficiencia: control sobre tus propios datos e infraestructura, sin dependencia de terceros.
 
-**En el sitio:** Sobre mí · Publicaciones · Proyectos · Habilidades · Trayectoria · Voluntariado e Impacto · Aficiones · Contacto
-**Contacto:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+**Ver el código:** [github.com/Rohit30Confluence](https://github.com/Rohit30Confluence)
+**Sitio completo:** [rohit30confluence.github.io](https://rohit30confluence.github.io)
+**¿No es tu idioma?** → [Traducir esta sección](https://translate.google.com/translate?sl=es&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
 
 <details>
-<summary><b>🇩🇪 Deutsch</b></summary>
+<summary><b>🇩🇪 Deutsch — Fähigkeiten & Tech-Stack</b></summary>
 <br/>
 
-Ich bin Rohit Dinde — *dr.confluence*. Ein Computeringenieur, der sechs Jahre lang auf die harte Tour gebaut hat: die Arbeit gelebt, während er sie gelernt hat. Dieses Portfolio zeigt die Systeme und Sicherheitswerkzeuge, die ich von Grund auf gebaut habe — ein Log-Analyzer, der Angriffsmuster erkennt, ein Paket-Sniffer, ein Recon-Framework — sowie die Open-Source-Communities, zu denen ich beitrage, und die ehrenamtliche Arbeit, die mich geerdet hält: die Leitung von 40 Freiwilligen während Punes COVID-Reaktion, das Pflanzen von über 700 Bäumen und der Einsatz für sauberes Wasser in abgelegenen Bergregionen.
+Was ich mitbringe, technisch gesehen:
 
-📘 **Veröffentlichte Forschung:** *Modern Cyber Warfare & Threat Intelligence Handbook* (Erste Auflage, 2026) — eine technische Analyse der russischen Cyberoperationen gegen die Ukraine (2022–2023) auf Basis von CERT-UA-Berichten, mit der Cyber-Kill-Chain, Profiling von Bedrohungsakteuren und einem MITRE-ATT&CK-kartierten Leitfaden für SOC-, DFIR- und Threat-Intel-Fachleute. [Handbuch lesen →](https://rohit30confluence.github.io/#publications)
+**Systemdenken** — die Fähigkeit, Infrastruktur als Ganzes zu verstehen, nicht nur einzelne Teile.
+**Netzwerk & Sicherheit** — Bedrohungserkennung, Log-Analyse, Angriffsmustererkennung.
+**Automatisierung & Skripting** — Python-gestützte Werkzeuge, die wiederkehrende Sicherheitsarbeit übernehmen.
+**KI / Machine Learning** — angewandt auf Automatisierung und Entscheidungsfindung, nicht nur als Schlagwort.
+**Open-Source-Beiträge** — aktive Arbeit in Communities, die reale Sicherheitsprobleme lösen.
 
-**Auf der Seite:** Über mich · Publikationen · Projekte · Fähigkeiten · Werdegang · Ehrenamt & Wirkung · Hobbys · Kontakt
-**Kontakt:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+**Werkzeuge:** Python · Networking · Security · AI/ML · Automation · Cloud (DigitalOcean) · Git · Linux · Log Analysis
+
+**Vollständige Seite:** [rohit30confluence.github.io](https://rohit30confluence.github.io)
+**Kein Deutsch gewünscht?** → [Diesen Abschnitt übersetzen](https://translate.google.com/translate?sl=de&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
 
 <details>
-<summary><b>🇮🇳 मराठी</b></summary>
+<summary><b>🇮🇳 मराठी — प्रवास</b></summary>
 <br/>
 
-मी रोहित दिंडे — *dr.confluence*. एक कॉम्प्युटर इंजिनिअर, ज्याने सहा वर्षे कठीण मार्गाने — काम करत करतच शिकत — स्वतःला घडवलं. या पोर्टफोलिओमध्ये मी सुरुवातीपासून तयार केलेली सिस्टीम्स आणि सिक्युरिटी टूल्स आहेत — हल्ल्याचे नमुने ओळखणारा लॉग अ‍ॅनालायझर, पॅकेट स्निफर, रिकॉनिसन्स फ्रेमवर्क — तसंच मी योगदान देत असलेले ओपन सोर्स समुदाय आणि मला जमिनीशी जोडून ठेवणारं स्वयंसेवी काम: पुण्याच्या कोविड प्रतिसादात ४० स्वयंसेवकांचं नेतृत्व, ७००+ झाडं लावणं, आणि दुर्गम डोंगराळ भागात स्वच्छ पाण्यासाठी सुरू असलेलं काम.
+२०१७ मध्ये SSC झाल्यानंतर, वयाच्या १७ व्या वर्षी फटाके आणि टेंडर उद्योगात काम केलं — ७ महिन्यांत ₹५० लाखांहून अधिक व्यवहार हाताळले, बँका आणि सरकारी अधिकाऱ्यांशी थेट व्यवहार. शिकण्याआधी कमावणं.
 
-📘 **प्रकाशित संशोधन:** *Modern Cyber Warfare & Threat Intelligence Handbook* (पहिली आवृत्ती, २०२६) — CERT-UA च्या विश्लेषणात्मक अहवालांवर आधारित, रशियाच्या युक्रेनविरुद्धच्या सायबर कारवायांचं (२०२२–२०२३) तांत्रिक विश्लेषण. यात सायबर किल चेन, थ्रेट-अ‍ॅक्टर प्रोफाइलिंग, आणि SOC, DFIR व थ्रेट इंटेल तज्ज्ञांसाठी MITRE ATT&CK-आधारित डिटेक्शन मार्गदर्शक समाविष्ट आहे. [हँडबुक वाचा →](https://rohit30confluence.github.io/#publications)
+२०१९ मध्ये HSC (विज्ञान शाखा) पूर्ण केलं. त्याच वर्षी Savitribai Phule Pune University मधून Computer Engineering ला सुरुवात केली — पण चार वर्षांऐवजी सहा वर्षं लागली, कारण मी शिक्षण आणि प्रत्यक्ष काम एकाच वेळी जगलो. २०२० मध्ये कोविड आला, तेव्हा पुण्याच्या आरोग्य विभागासोबत ४० स्वयंसेवकांचं नेतृत्व केलं.
 
-**साइटवर:** माझ्याबद्दल · लेखन · प्रकल्प · कौशल्ये · प्रवास · स्वयंसेवा व प्रभाव · छंद · संपर्क
-**संपर्क:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+२०१९ पासून आजतागायत — Operations पासून Services पर्यंत, आणि शेवटी एका टीमचा संस्थापक सदस्य म्हणून — ओपन सोर्स समुदायांमध्ये योगदान देत, सिस्टीम्स समस्या सोडवत आलो आहे. सरळ रेषेतला प्रवास नव्हता. पण खरा होता.
+
+**पूर्ण साइट:** [rohit30confluence.github.io](https://rohit30confluence.github.io)
+**ही भाषा नको?** → [हा विभाग भाषांतरित करा](https://translate.google.com/translate?sl=mr&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
 
 <details>
-<summary><b>🇨🇳 中文</b></summary>
+<summary><b>🇨🇳 中文 — 已发表的研究</b></summary>
 <br/>
 
-我是 Rohit Dinde — *dr.confluence*。一名计算机工程师,用六年时间以最踏实的方式成长:一边工作一边学习。这个作品集展示了我从零开始搭建的系统和安全工具——能识别攻击模式的日志分析器、数据包嗅探器、侦察框架——以及我持续贡献的开源社区,还有让我保持初心的志愿工作:在浦那(Pune)的新冠疫情应对中带领 40 名志愿者、种植 700 多棵树,并致力于为偏远山区提供清洁用水。
+**《现代网络战与威胁情报手册》(Modern Cyber Warfare & Threat Intelligence Handbook)** — 第一版,2026年。
 
-📘 **已发表研究:**《现代网络战与威胁情报手册》(Modern Cyber Warfare & Threat Intelligence Handbook,第一版,2026)——基于 CERT-UA 分析报告,对俄罗斯针对乌克兰的网络行动(2022–2023)进行的技术分析,涵盖网络攻击链、威胁行为者画像,以及为 SOC、DFIR 和威胁情报从业者绘制的 MITRE ATT&CK 检测指南。[阅读手册 →](https://rohit30confluence.github.io/#publications)
+这本手册基于 CERT-UA(乌克兰计算机应急响应小组)2022 至 2023 年间的分析报告,对俄罗斯针对乌克兰的网络行动进行技术层面的深入剖析。内容涵盖:
 
-**网站内容:** 关于我 · 著作 · 项目 · 技能 · 成长历程 · 志愿服务与影响 · 兴趣爱好 · 联系方式
-**联系我:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+- **网络攻击链(Cyber Kill Chain)** 与情报周期的完整拆解
+- **威胁行为者画像**,包括 Gamaredon、Sandworm,以及与俄罗斯 GRU、FSB、SVR 相关的攻击组织
+- 一份完整的、基于 **MITRE ATT&CK** 框架映射的检测工程指南
+
+目标读者包括 SOC 分析师、DFIR 团队、威胁情报从业者、安全工程师、CERT 团队,乃至军事与政府网络安全人员。
+
+**阅读手册:** [rohit30confluence.github.io/#publications](https://rohit30confluence.github.io/#publications)
+**不习惯中文?** → [翻译此部分](https://translate.google.com/translate?sl=zh-CN&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
 
 <details>
-<summary><b>🇯🇵 日本語</b></summary>
+<summary><b>🇯🇵 日本語 — ボランティア活動と社会貢献</b></summary>
 <br/>
 
-私はロヒット・ディンデ(Rohit Dinde)— *dr.confluence* です。6年間、地道に働きながら学び続けてきたコンピュータエンジニアです。このポートフォリオには、ゼロから構築したシステムとセキュリティツール——攻撃パターンを検知するログアナライザー、パケットスニファー、偵察フレームワーク——に加え、貢献しているオープンソースコミュニティや、私を支えているボランティア活動を掲載しています。プネでのCOVID対応で40人のボランティアを率いたこと、700本以上の植樹、そして山間の遠隔地における清潔な水へのアクセス支援などです。
+技術だけでなく、地に足をつけてくれる活動もあります。
 
-📘 **発表した研究:**『Modern Cyber Warfare & Threat Intelligence Handbook』(初版、2026年)— CERT-UAの分析報告書をもとに、ロシアによるウクライナへのサイバー作戦(2022〜2023年)を技術的に分析。サイバーキルチェーン、脅威アクターのプロファイリング、そしてSOC・DFIR・脅威インテリジェンス実務者向けのMITRE ATT&CKマッピング検知ガイドを収録。[ハンドブックを読む →](https://rohit30confluence.github.io/#publications)
+**COVIDケアセンター・ボランティア(2020〜2023年)** — プネ市保健局と共に、2度の感染拡大を通じて40人のボランティアチームを率い、検査・患者ケア・ワクチン接種活動を支援しました。
 
-**サイト内容:** プロフィール · 著作 · プロジェクト · スキル · 歩み · ボランティア活動 · 趣味 · お問い合わせ
-**連絡先:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+**植樹活動(2019年〜現在)** — 個人として700本以上の苗木を植え、タミル・ナードゥ州やプネでのオープンソース主導の植樹プロジェクトにも、DigitalOceanのインフラ支援を受けて貢献しています。
+
+**マラーティー演劇の支援(2021〜2023年)** — 学生レベルのマラーティー演劇を支え、次世代の演者のために文化芸術を継承する活動を行いました。
+
+**清潔な水へのアクセス(継続中)** — 開発によって水源が汚染された遠隔の山岳地域で、清潔な水へのアクセスに取り組んでいます。生活は特権ではなく、権利だという信念のもとで。
+
+**サイト全体:** [rohit30confluence.github.io](https://rohit30confluence.github.io)
+**日本語以外がよろしければ** → [このセクションを翻訳](https://translate.google.com/translate?sl=ja&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
 
 <details>
-<summary><b>🇰🇷 한국어</b></summary>
+<summary><b>🇰🇷 한국어 — 터미널 밖의 삶</b></summary>
 <br/>
 
-저는 로힛 딘데(Rohit Dinde) — *dr.confluence* 입니다. 6년 동안 일을 직접 겪으며 배워온 컴퓨터 엔지니어입니다. 이 포트폴리오에는 제가 처음부터 직접 만든 시스템과 보안 도구들——공격 패턴을 탐지하는 로그 분석기, 패킷 스니퍼, 정찰 프레임워크——그리고 제가 기여하고 있는 오픈소스 커뮤니티, 저를 지탱해주는 봉사 활동이 담겨 있습니다. 푸네(Pune)의 코로나19 대응에서 40명의 자원봉사자를 이끈 일, 700그루 이상의 나무 심기, 그리고 외딴 산간 지역의 깨끗한 물 공급을 위한 활동입니다.
+일만 하는 사람은 아닙니다.
 
-📘 **출간 연구:** 『Modern Cyber Warfare & Threat Intelligence Handbook』(초판, 2026년) — CERT-UA 분석 보고서를 기반으로 러시아의 우크라이나 대상 사이버 작전(2022–2023)을 기술적으로 분석한 자료. 사이버 킬체인, 위협 행위자 프로파일링, SOC·DFIR·위협 인텔리전스 실무자를 위한 MITRE ATT&CK 기반 탐지 가이드를 다룹니다. [핸드북 읽기 →](https://rohit30confluence.github.io/#publications)
+**만들기** — 취미가 곧 직업이 된 경우. 하드웨어든 소프트웨어든, 만들 수 있다면 만들어야 한다는 주의입니다.
+**승마와 스포츠** — 모든 스포츠를 좋아하지만, 말은 특별합니다. 그 규율이 다른 모든 일에도 그대로 적용됩니다.
+**힙합과 라임** — 새벽 2시에 무언가를 만들 때 어울리는 에너지의 음악.
+**기술 탐구** — 전기에서 인터넷으로, 스크립팅에서 AI로. 호기심에는 스위치가 없습니다.
+**탐험과 자연** — 나무, 깨끗한 물, 산. 가장 중요한 문제들이 있는 곳입니다.
 
-**사이트 구성:** 소개 · 저작 · 프로젝트 · 기술 · 여정 · 봉사 활동 · 취미 · 연락처
-**연락처:** rohitdinde30@gmail.com · [GitHub](https://github.com/Rohit30Confluence) · [LinkedIn](https://www.linkedin.com/in/rohitdinde/)
+*"삶은 자원봉사와 같다 — 우리는 태어나기로 선택하지 않았고, 떠나기로 선택하지도 않는다. 그러니 여기 있는 동안 의미 있게 살자."*
+
+**전체 사이트:** [rohit30confluence.github.io](https://rohit30confluence.github.io)
+**한국어가 아니어도 괜찮다면** → [이 섹션 번역하기](https://translate.google.com/translate?sl=ko&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md)
 
 </details>
+
+<br/>
+
+**🌍 Don't see your language at all?** → [Translate the live portfolio](https://translate.google.com/translate?sl=en&u=https://rohit30confluence.github.io) or [translate this whole README](https://translate.google.com/translate?sl=en&u=https://github.com/Rohit30Confluence/rohit30confluence.github.io/blob/main/README.md) into any language via Google Translate.
 
 <br/>
 
