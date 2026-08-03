@@ -206,6 +206,11 @@ section{padding:110px 60px}
 .proj-status{font-family:var(--font-mono);font-size:.62rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:3px}
 .proj-status.active{background:var(--confluence-wash);color:var(--confluence-soft);border:1px solid rgba(45,212,191,.3)}
 .proj-status.wip{background:var(--signal-wash);color:var(--signal-soft);border:1px solid rgba(255,138,61,.3)}
+.proj-status.flagship{background:linear-gradient(90deg,var(--signal-wash),var(--confluence-wash));color:var(--text);border:1px solid var(--border-h)}
+.proj-card--flagship{grid-column:span 2;border-left-color:var(--signal)}
+.proj-card--flagship .proj-name{font-size:1.1rem}
+.proj-card--flagship .proj-desc{font-size:.88rem}
+@media(max-width:760px){.proj-card--flagship{grid-column:span 1}}
 .proj-gh{color:var(--dim);text-decoration:none;font-size:.9rem;width:30px;height:30px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
 .proj-gh:hover,.proj-gh:focus-visible{border-color:var(--signal);color:var(--signal)}
 .proj-name{font-family:var(--font-mono);font-size:.98rem;font-weight:600;color:var(--text);margin-bottom:10px;letter-spacing:-.01em}
@@ -487,54 +492,90 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:26px 60p
       <button class="pf" data-filter="ai" aria-pressed="false">AI</button>
       <button class="pf" data-filter="systems" aria-pressed="false">Systems</button>
     </div>
-    <!-- Status tags below default to ACTIVE — update per repo to WIP/ACTIVE as accurate. -->
+    <!-- Status tags reflect repo state as of the last full review — keep these current as repos evolve. -->
     <div class="proj-grid">
 
-      <div class="proj-card reveal" data-tags="security">
+      <div class="proj-card proj-card--flagship reveal" data-tags="security systems">
         <div class="proj-body">
           <div class="proj-head">
-            <span class="proj-status active">Active</span>
-            <a href="https://github.com/Rohit30Confluence/python-packet-sniffer" target="_blank" rel="noopener" class="proj-gh" aria-label="View python-packet-sniffer on GitHub">↗</a>
+            <span class="proj-status flagship">Flagship</span>
+            <a href="https://github.com/Rohit30Confluence/ndap" target="_blank" rel="noopener" class="proj-gh" aria-label="View ndap on GitHub">↗</a>
           </div>
-          <p class="proj-name">python-packet-sniffer</p>
-          <p class="proj-desc">Captures and decodes live TCP/UDP/ICMP traffic straight from raw sockets — no packet-parsing library in between. Built to understand the protocol stack at the byte level, not just call a wrapper.</p>
-          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Networking</span><span class="ptag">Security</span></div>
+          <p class="proj-name">ndap</p>
+          <p class="proj-desc">A modular network detection & analysis platform: packet engine, flow tracking, and detection rules in a Rust core, with Python plugin extensibility for threat intel (Sigma/YARA/IOC matching) and a REST dashboard on top. The most complete piece of security tooling here — closest to what a real SOC platform looks like under the hood.</p>
+          <div class="proj-tags"><span class="ptag">Rust</span><span class="ptag">Python</span><span class="ptag">Sigma / YARA</span><span class="ptag">REST API</span></div>
         </div>
       </div>
 
-      <div class="proj-card reveal d1" data-tags="security">
+      <div class="proj-card reveal d1" data-tags="security systems">
+        <div class="proj-body">
+          <div class="proj-head">
+            <span class="proj-status active">Active</span>
+            <a href="https://github.com/Rohit30Confluence/sentinel" target="_blank" rel="noopener" class="proj-gh" aria-label="View sentinel on GitHub">↗</a>
+          </div>
+          <p class="proj-name">sentinel</p>
+          <p class="proj-desc">Async reconnaissance framework with global rate-limiting and layered concurrency control — built to scan wide without tripping the targets it's scanning or overrunning its own resources.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Async</span><span class="ptag">Recon</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal d2" data-tags="security">
         <div class="proj-body">
           <div class="proj-head">
             <span class="proj-status active">Active</span>
             <a href="https://github.com/Rohit30Confluence/log-analyzer-attack-detection" target="_blank" rel="noopener" class="proj-gh" aria-label="View log-analyzer-attack-detection on GitHub">↗</a>
           </div>
           <p class="proj-name">log-analyzer-attack-detection</p>
-          <p class="proj-desc">Parses system logs and flags anomaly patterns tied to common attack signatures — the entry point into system-level threat detection, and a direct extension of SOC-analyst work.</p>
-          <div class="proj-tags"><span class="ptag">Security</span><span class="ptag">Log Analysis</span><span class="ptag">Detection</span></div>
+          <p class="proj-desc">Apache log analyzer for attack detection — custom parsing plus rule-based detection for brute force, SQLi, and XSS patterns, with visualization on top.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Log Analysis</span><span class="ptag">Apache</span></div>
         </div>
       </div>
 
       <div class="proj-card reveal d2" data-tags="systems">
         <div class="proj-body">
           <div class="proj-head">
-            <span class="proj-status wip">WIP</span>
-            <a href="https://github.com/Rohit30Confluence/sentinel" target="_blank" rel="noopener" class="proj-gh" aria-label="View sentinel on GitHub">↗</a>
+            <span class="proj-status active">Active</span>
+            <a href="https://github.com/Rohit30Confluence/log-analyzer-orchestrator" target="_blank" rel="noopener" class="proj-gh" aria-label="View log-analyzer-orchestrator on GitHub">↗</a>
           </div>
-          <p class="proj-name">sentinel</p>
-          <p class="proj-desc">Infrastructure monitoring and alerting — watches system state and surfaces deviations before they become incidents. Same detection mindset as the log analyzer, aimed at hosts instead of logs.</p>
-          <div class="proj-tags"><span class="ptag">Systems</span><span class="ptag">Monitoring</span></div>
+          <p class="proj-name">log-analyzer-orchestrator</p>
+          <p class="proj-desc">The deployment, monitoring, and DNS automation layer behind log-analyzer-attack-detection — CI/CD, environment sync, and production stability for the platform above.</p>
+          <div class="proj-tags"><span class="ptag">CI/CD</span><span class="ptag">DevOps</span><span class="ptag">Automation</span></div>
         </div>
       </div>
 
-      <div class="proj-card reveal d3" data-tags="ai">
+      <div class="proj-card reveal d3" data-tags="security">
+        <div class="proj-body">
+          <div class="proj-head">
+            <span class="proj-status active">Active</span>
+            <a href="https://github.com/Rohit30Confluence/mini-scanner" target="_blank" rel="noopener" class="proj-gh" aria-label="View mini-scanner on GitHub">↗</a>
+          </div>
+          <p class="proj-name">mini-scanner</p>
+          <p class="proj-desc">A lightweight, modular TCP port scanner with concurrent scanning and structured output — small on purpose, built to be read and extended rather than treated as a black box.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Networking</span><span class="ptag">Concurrency</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal d3" data-tags="security">
+        <div class="proj-body">
+          <div class="proj-head">
+            <span class="proj-status active">Active</span>
+            <a href="https://github.com/Rohit30Confluence/PacketSnifferAnalyzer" target="_blank" rel="noopener" class="proj-gh" aria-label="View PacketSnifferAnalyzer on GitHub">↗</a>
+          </div>
+          <p class="proj-name">PacketSnifferAnalyzer</p>
+          <p class="proj-desc">A packet sniffer and traffic analyzer with three interfaces to the same engine — CLI for scripting, GUI for live use, and a dashboard for visualization. The current, more complete version of my original packet-sniffer work.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">GUI</span><span class="ptag">Dashboard</span></div>
+        </div>
+      </div>
+
+      <div class="proj-card reveal d4" data-tags="ai">
         <div class="proj-body">
           <div class="proj-head">
             <span class="proj-status wip">WIP</span>
             <a href="https://github.com/Rohit30Confluence/Nexus-AI" target="_blank" rel="noopener" class="proj-gh" aria-label="View Nexus-AI on GitHub">↗</a>
           </div>
           <p class="proj-name">Nexus-AI</p>
-          <p class="proj-desc">An AI-driven pipeline for turning raw operational data into decisions an automation layer can act on — built from the ground up rather than assembled from a template.</p>
-          <div class="proj-tags"><span class="ptag">AI</span><span class="ptag">Automation</span></div>
+          <p class="proj-desc">An AI-driven pipeline connecting data, decisions, and automation — early stage, description to be expanded as the project matures.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">AI</span></div>
         </div>
       </div>
 
@@ -545,8 +586,8 @@ footer{background:var(--ink);border-top:1px solid var(--border);padding:26px 60p
             <a href="https://github.com/Rohit30Confluence/sovereign" target="_blank" rel="noopener" class="proj-gh" aria-label="View sovereign on GitHub">↗</a>
           </div>
           <p class="proj-name">sovereign</p>
-          <p class="proj-desc">Self-hosted infrastructure tooling built around owning your own data and compute — no third-party lock-in for the pieces you depend on daily.</p>
-          <div class="proj-tags"><span class="ptag">Systems</span><span class="ptag">Ownership</span></div>
+          <p class="proj-desc">Self-hosted infrastructure tooling built around owning your own data and compute — early stage, description to be expanded as the project matures.</p>
+          <div class="proj-tags"><span class="ptag">Python</span><span class="ptag">Self-Hosted</span></div>
         </div>
       </div>
 
