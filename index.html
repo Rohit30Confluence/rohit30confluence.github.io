@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohit Dinde — Security Engineer · dr.confluence</title>
+<meta name="description" content="Rohit Dinde is a security engineer in Pune building detection systems, network-analysis tooling, and security infrastructure in Python and Rust, currently exploring AI/LLM security.">
+<link rel="canonical" href="https://rohit30confluence.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rohit Dinde — Security Engineer">
+<meta property="og:description" content="Security engineer building detection systems, network-analysis tools, and security infrastructure.">
+<meta property="og:url" content="https://rohit30confluence.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312120F'/%3E%3Ctext x='50%25' y='58%25' font-family='Georgia,serif' font-size='40' fill='%23FCFCFA' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rohit Dinde",
+  "jobTitle": "Security Engineer",
+  "url": "https://rohit30confluence.github.io/",
+  "sameAs": [
+    "https://github.com/Rohit30Confluence",
+    "https://linkedin.com/in/rohitdinde"
+  ],
+  "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" }
+}
+</script>
+<style>
+  :root{
+    --bg:       #FCFCFA;
+    --bg-raised:#F5F4EF;
+    --ink:      #12120F;
+    --ink-soft: #5A5A54;
+    --ink-faint:#9A988F;
+    --line:     #DEDCD3;
+    --accent:   #D64526;
+    --accent-soft: rgba(214,69,38,0.10);
+    --focus:    #D64526;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--ink); color:var(--bg); }
+  :focus-visible{ outline:2px solid var(--focus); outline-offset:3px; border-radius:2px; }
+  img{ max-width:100%; display:block; }
+
+  .skip-link{
+    position:absolute; left:-9999px; top:0; z-index:200;
+    background:var(--ink); color:var(--bg);
+    padding:12px 18px; font-family:'JetBrains Mono', monospace; font-size:13px;
+  }
+  .skip-link:focus{ left:16px; top:16px; }
+
+  .wrap{ max-width:1200px; margin:0 auto; padding:0 40px; }
+  @media (max-width:640px){ .wrap{ padding:0 20px; } }
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+
+  /* ===================== HEADER ===================== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(252,252,250,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{ border-bottom-color:var(--line); }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:74px;
+  }
+  .logo{ font-family:'Fraunces', serif; font-weight:600; font-size:18px; letter-spacing:-0.01em; }
+
+  .navlinks{ display:flex; gap:34px; font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; }
+  .navlinks a{ position:relative; padding:3px 0; color:var(--ink-soft); transition:color .2s; }
+  .navlinks a:hover, .navlinks a:focus-visible{ color:var(--ink); }
+  .navlinks a[aria-current="page"]{ color:var(--accent); }
+  .navlinks a::after{
+    content:''; position:absolute; left:0; bottom:-3px; width:0; height:1px;
+    background:var(--accent); transition:width .25s ease;
+  }
+  .navlinks a:hover::after{ width:100%; }
+
+  .nav-toggle{
+    display:none;
+    width:36px; height:36px;
+    border:1px solid var(--line);
+    background:transparent;
+    border-radius:4px;
+    position:relative;
+    cursor:pointer;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:''; position:absolute; left:9px; right:9px; height:1px; background:var(--ink);
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .nav-toggle span{ top:17px; }
+  .nav-toggle span::before{ content:''; top:-6px; }
+  .nav-toggle span::after{ content:''; top:6px; }
+  .nav-toggle[aria-expanded="true"] span{ background:transparent; }
+  .nav-toggle[aria-expanded="true"] span::before{ transform:translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span::after{ transform:translateY(-6px) rotate(-45deg); }
+
+  .mobile-panel{
+    display:none;
+    flex-direction:column;
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+  }
+  .mobile-panel.open{ display:flex; }
+  .mobile-panel a{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+    padding:16px 20px; border-top:1px solid var(--line); color:var(--ink-soft);
+  }
+  .mobile-panel a:hover, .mobile-panel a:focus-visible{ color:var(--accent); background:var(--bg-raised); }
+
+  @media (max-width:760px){
+    .navlinks{ display:none; }
+    .nav-toggle{ display:block; }
+  }
+
+  /* ===================== HERO ===================== */
+  .hero{ padding:168px 0 60px; }
+
+  .hero-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    flex-wrap:wrap; gap:20px; margin-bottom:10px;
+  }
+  .hero-loc{ text-align:right; }
+  @media (max-width:700px){ .hero-loc{ text-align:left; } }
+
+  h1.name{
+    font-size:clamp(52px, 10.5vw, 132px);
+    line-height:0.94;
+    letter-spacing:-0.02em;
+    overflow:hidden;
+  }
+  h1.name span{
+    display:block;
+    transform:translateY(105%);
+    animation:riseUp 0.85s cubic-bezier(.22,1,.36,1) forwards;
+  }
+  h1.name span:nth-child(2){ animation-delay:0.07s; }
+  @keyframes riseUp{ to{ transform:translateY(0); } }
+
+  .hero-statement{
+    margin-top:26px;
+    max-width:600px;
+    font-size:clamp(16px, 2vw, 19px);
+    color:var(--ink-soft);
+    opacity:0;
+    animation:fadeUp .7s ease forwards;
+    animation-delay:.35s;
+  }
+  .hero-statement b{ color:var(--ink); font-weight:600; }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:translateY(0); } }
+
+  .hero-loc-line{
+    margin-top:18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--ink-faint);
+    opacity:0;
+    animation:fadeUp .7s ease forwards;
+    animation-delay:.45s;
+  }
+
+  .slug-index{
+    margin-top:56px;
+    display:flex; flex-wrap:wrap; gap:0;
+    border-top:1px solid var(--line);
+    padding-top:6px;
+    opacity:0;
+    animation:fadeUp .7s ease forwards;
+    animation-delay:.55s;
+  }
+  .slug-index a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    padding:14px 20px 14px 0;
+    margin-right:20px;
+    border-bottom:1px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  .slug-index a:hover, .slug-index a:focus-visible{ color:var(--accent); border-color:var(--accent); }
+
+  /* ===================== SECTION SHARED ===================== */
+  section{ padding:100px 0; border-top:1px solid var(--line); }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    margin-bottom:56px; gap:16px; flex-wrap:wrap;
+  }
+  h2.section-title{ font-size:clamp(30px, 4.2vw, 44px); }
+  .section-index{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--ink-faint); letter-spacing:0.08em;
+  }
+  .section-kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:10px; display:block;
+  }
+
+  /* ===================== FLAGSHIP PROJECTS ===================== */
+  .flagship{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    padding:56px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .flagship:first-child{ padding-top:0; }
+  @media (max-width:900px){ .flagship{ grid-template-columns:1fr; gap:32px; } }
+
+  .flagship-left .fnum{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-faint); margin-bottom:14px;
+  }
+  .flagship-title{ font-size:clamp(30px, 3.6vw, 44px); line-height:1.02; }
+  .flagship-cat{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--accent); margin-top:10px;
+  }
+  .flagship-desc{ margin-top:20px; color:var(--ink-soft); font-size:15px; max-width:52ch; }
+  .flagship-desc li{ margin-bottom:8px; margin-left:16px; }
+
+  .flagship-links{ margin-top:26px; display:flex; gap:18px; flex-wrap:wrap; }
+  .flagship-links a, .case-toggle{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    background:none; border-top:none; border-left:none; border-right:none;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .flagship-links a:hover, .flagship-links a:focus-visible,
+  .case-toggle:hover, .case-toggle:focus-visible{ color:var(--accent); border-color:var(--accent); }
+
+  .architecture{
+    border:1px solid var(--line);
+    background:var(--bg-raised);
+    padding:28px;
+    border-radius:6px;
+  }
+  .arch-label{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:18px;
+  }
+  .arch-flow{ display:flex; flex-direction:column; align-items:stretch; }
+  .arch-step{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    border:1px solid var(--line); background:var(--bg);
+    padding:10px 14px; border-radius:4px;
+    text-align:center;
+  }
+  .arch-arrow{
+    text-align:center; color:var(--ink-faint); font-size:13px; padding:5px 0;
+  }
+  .tech-stack{
+    margin-top:22px;
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .tech-stack span{
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    border:1px solid var(--line); padding:4px 10px; border-radius:20px;
+    color:var(--ink-soft);
+  }
+
+  /* case study expandable */
+  .case-study{
+    max-height:0; overflow:hidden;
+    transition:max-height .4s ease;
+    grid-column:1 / -1;
+  }
+  .case-study.open{ max-height:3200px; }
+  .case-inner{ padding-top:36px; border-top:1px solid var(--line); margin-top:36px; }
+  .case-block{ margin-bottom:30px; max-width:70ch; }
+  .case-block h4{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:10px;
+  }
+  .case-block p, .case-block li{ font-size:14.5px; color:var(--ink-soft); }
+  .case-block li{ margin-left:16px; margin-bottom:6px; }
+
+  /* ===================== SUPPORTING PROJECTS ===================== */
+  .supporting-head{
+    margin-top:12px;
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ink-faint); padding-top:56px; padding-bottom:24px;
+  }
+  .project-row{
+    display:grid;
+    grid-template-columns:80px 1fr 220px;
+    gap:28px;
+    padding:32px 0;
+    border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  @media (max-width:800px){ .project-row{ grid-template-columns:1fr; gap:10px; } }
+  .project-row .pnum{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--ink-faint); padding-top:4px; }
+  .project-title{ font-size:clamp(20px, 2.6vw, 26px); }
+  .project-sub{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:0.04em; text-transform:uppercase;
+    color:var(--accent); margin-top:4px;
+  }
+  .project-status{
+    display:inline-block; margin-top:8px;
+    font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--ink); background:var(--accent-soft); border:1px solid rgba(214,69,38,0.3);
+    padding:3px 9px; border-radius:3px;
+  }
+  .project-desc{ margin-top:12px; font-size:14px; color:var(--ink-soft); max-width:52ch; }
+  .project-desc li{ margin-left:16px; margin-bottom:5px; }
+  .project-meta .tech-tags{
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-faint); line-height:1.9;
+  }
+
+  /* ===================== ENGINEERING (skills + open source) ===================== */
+  .skills-list{ display:flex; flex-direction:column; gap:24px; }
+  .skill-row{
+    display:grid; grid-template-columns:190px 1fr; gap:24px;
+    padding-bottom:24px; border-bottom:1px solid var(--line);
+  }
+  .skill-row:last-child{ border-bottom:none; }
+  @media (max-width:700px){ .skill-row{ grid-template-columns:1fr; gap:8px; } }
+  .skill-row h3{
+    font-family:'JetBrains Mono', monospace; font-weight:500; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .skill-row p{ font-size:15px; color:var(--ink); }
+  .skill-row p .sep{ color:var(--ink-faint); margin:0 2px; }
+
+  .oss-block{ margin-top:72px; padding-top:56px; border-top:1px solid var(--line); }
+  .oss-grid{ display:grid; grid-template-columns:1fr 1fr; gap:56px; }
+  @media (max-width:800px){ .oss-grid{ grid-template-columns:1fr; gap:36px; } }
+  .oss-text p{ font-size:15px; color:var(--ink-soft); max-width:52ch; margin-bottom:16px; }
+  .repo-list{ list-style:none; }
+  .repo-list li{
+    display:flex; justify-content:space-between; gap:12px;
+    padding:14px 0; border-bottom:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace; font-size:13px;
+  }
+  .repo-list li a{ color:var(--ink); }
+  .repo-list li a:hover, .repo-list li a:focus-visible{ color:var(--accent); }
+  .repo-list li span{ color:var(--ink-faint); font-size:11.5px; }
+
+  /* ===================== ABOUT ===================== */
+  .about-grid{ display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px; }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; gap:48px; } }
+  .about-lede{
+    font-size:clamp(20px, 2.6vw, 28px);
+    line-height:1.4;
+    max-width:34ch;
+  }
+  .about-lede em{ font-style:italic; color:var(--accent); }
+  .about-body{ margin-top:22px; font-size:15px; color:var(--ink-soft); max-width:52ch; }
+  .about-body p{ margin-bottom:14px; }
+
+  .side-block + .side-block{ margin-top:44px; }
+  .side-block h3{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:16px; padding-bottom:12px; border-bottom:1px solid var(--line);
+  }
+  .cert-list{ list-style:none; }
+  .cert-list li{
+    padding:12px 0; border-bottom:1px solid var(--line);
+    font-size:14px; display:flex; gap:12px; color:var(--ink-soft);
+  }
+  .cert-list li:first-child{ padding-top:0; }
+  .cert-list li::before{ content:'—'; color:var(--accent); flex-shrink:0; font-family:'JetBrains Mono', monospace; }
+  .edu-degree{ font-size:17px; font-weight:600; margin-bottom:4px; }
+  .edu-school{ font-size:13.5px; color:var(--ink-soft); margin-bottom:12px; }
+  .edu-meta{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between; padding-top:12px; border-top:1px solid var(--line);
+  }
+
+  /* ===================== CONTACT / FOOTER ===================== */
+  footer{ border-top:1px solid var(--line); padding:110px 0 44px; }
+  .contact-title{
+    font-size:clamp(32px, 6.2vw, 68px);
+    line-height:1.06; letter-spacing:-0.02em;
+    max-width:780px; margin-bottom:44px;
+  }
+  .contact-title a{ color:var(--accent); border-bottom:2px solid rgba(214,69,38,0.3); }
+  .contact-title a:hover{ border-color:var(--accent); }
+
+  .contact-links{ display:flex; flex-wrap:wrap; border-top:1px solid var(--line); }
+  .contact-links a{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    padding:16px 22px 16px 0; margin-right:22px;
+    border-bottom:1px solid transparent; color:var(--ink-soft);
+    transition:color .2s, border-color .2s;
+  }
+  .contact-links a:hover, .contact-links a:focus-visible{ color:var(--accent); border-color:var(--accent); }
+
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-faint);
+    margin-top:64px;
+  }
+  .back-top{ font-family:'JetBrains Mono', monospace; font-size:11px; color:var(--ink-soft); }
+  .back-top:hover, .back-top:focus-visible{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header id="siteHeader">
+  <nav class="wrap" aria-label="Primary">
+    <a class="logo" href="#top">Rohit Dinde <span style="color:var(--ink-faint); font-weight:400; font-size:13px;">· dr.confluence</span></a>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#engineering">Engineering</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobilePanel" aria-label="Toggle navigation menu">
+      <span></span>
+    </button>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#work">Work</a>
+    <a href="#engineering">Engineering</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+  <section id="top" class="hero wrap" style="border-top:none;">
+    <div class="hero-top">
+      <div class="eyebrow">Cybersecurity / Systems Engineer</div>
+      <div class="hero-loc eyebrow">Pune, India</div>
+    </div>
+
+    <h1 class="name"><span>ROHIT</span><span>DINDE</span></h1>
+
+    <p class="hero-statement">
+      Security engineer building <b>detection systems</b>, <b>network-analysis tools</b>,
+      and security infrastructure — in Python and Rust, from packet to dashboard.
+      Currently sharpening detection engineering and exploring <b>AI/LLM security</b>.
+    </p>
+
+    <p class="hero-loc-line">Pune, India · Open to security / systems roles</p>
+
+    <div class="slug-index" aria-label="Jump to project">
+      <a href="#p-logsentinel">/LOGSENTINEL</a>
+      <a href="#p-ndap">/NDAP</a>
+      <a href="#p-audit">/APPROVAL-AUDIT</a>
+      <a href="#p-sentinel">/SENTINEL</a>
+      <a href="#p-scanner">/MINI-SCANNER</a>
+      <a href="#p-packet">/PACKET-SNIFFER</a>
+    </div>
+  </section>
+
+  <!-- ===================== WORK ===================== -->
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Selected Work</h2>
+      <div class="section-index">FLAGSHIP + SUPPORTING</div>
+    </div>
+
+    <!-- FLAGSHIP 01 — LogSentinel -->
+    <article class="flagship" id="p-logsentinel">
+      <div class="flagship-left">
+        <div class="fnum">01</div>
+        <h3 class="flagship-title">LogSentinel</h3>
+        <div class="flagship-cat">Apache Log Analyzer &amp; Attack Detection</div>
+        <ul class="flagship-desc">
+          <li>Streamed log parsing with rule-based detection for brute force, SQL injection, XSS, and path traversal / LFI.</li>
+          <li>Percent-decoding and per-IP historical analysis to catch encoded payloads and repeated activity.</li>
+          <li>REST APIs, WebSocket alert streaming, CLI tooling, traffic simulation, and a monitoring dashboard.</li>
+          <li>Automated tests and GitHub Actions CI across Python 3.10–3.12, including an end-to-end CLI check.</li>
+        </ul>
+        <div class="flagship-links">
+          <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">GitHub ↗</a>
+          <button class="case-toggle" aria-expanded="false" aria-controls="case-logsentinel">View case study ↓</button>
+        </div>
+      </div>
+      <div class="architecture" aria-label="LogSentinel architecture">
+        <div class="arch-label">Detection pipeline</div>
+        <div class="arch-flow">
+          <div class="arch-step">Apache Logs</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Streamed Parser</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Normalization + Percent-Decoding</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Detection Rules</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Per-IP Historical Correlation</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Alert Engine</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">REST API / WebSocket</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Monitoring Dashboard</div>
+        </div>
+        <div class="tech-stack">
+          <span>Python</span><span>FastAPI</span><span>SQLite</span><span>WebSocket</span><span>Docker</span><span>pytest</span><span>GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="case-study" id="case-logsentinel">
+        <div class="case-inner">
+          <div class="case-block">
+            <h4>What problem this solves</h4>
+            <p>Apache access logs contain the evidence of most web-layer attacks — brute-force login attempts, injected SQL, reflected XSS, path traversal — but that evidence is only useful if it's parsed, decoded, and correlated as it arrives, not read after the fact. LogSentinel is built to sit in that gap: turning a raw, streaming log file into structured, rule-evaluated events in near real time.</p>
+          </div>
+          <div class="case-block">
+            <h4>How it works</h4>
+            <p>Log lines are streamed and parsed incrementally rather than loaded in bulk, so the service can run continuously against a growing file. Each request is percent-decoded before rule evaluation, since encoded payloads are a common way attackers evade naive string matching. Detection rules run per request, and a per-IP history is kept so that isolated anomalies and repeated, escalating activity from the same source can be distinguished.</p>
+          </div>
+          <div class="case-block">
+            <h4>Engineering decisions</h4>
+            <ul>
+              <li>Streamed parsing rather than batch processing, so the analyzer scales with log volume instead of memory.</li>
+              <li>SQLite chosen for persistence to keep the service self-contained and easy to run without external infrastructure.</li>
+              <li>WebSocket alert streaming added alongside REST, so a dashboard can reflect detections live rather than polling.</li>
+              <li>CLI tooling and a traffic simulator built alongside the service to make detection rules testable without live traffic.</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h4>Security model</h4>
+            <p>Detection is rule-based across four categories — brute force, SQL injection, XSS, and path traversal / LFI — with the percent-decoding step specifically added to reduce false negatives from encoded attack strings.</p>
+          </div>
+          <div class="case-block">
+            <h4>Testing &amp; CI</h4>
+            <p>Automated tests run in GitHub Actions across Python 3.10, 3.11, and 3.12, including an end-to-end check that exercises the CLI directly rather than only unit-level logic.</p>
+          </div>
+          <div class="case-block">
+            <h4>Where this stands</h4>
+            <p>This is a personal, open-source project built to demonstrate detection engineering end to end — not a deployed production system with live traffic or measured outcomes. The GitHub repository has the full source and commit history.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- FLAGSHIP 02 — NDAP -->
+    <article class="flagship" id="p-ndap">
+      <div class="flagship-left">
+        <div class="fnum">02</div>
+        <h3 class="flagship-title">NDAP</h3>
+        <div class="flagship-cat">Network Detection &amp; Analysis Platform</div>
+        <ul class="flagship-desc">
+          <li>Modular Rust platform spanning packet capture, protocol decoding, flow tracking, detection, and CLI/API components.</li>
+          <li>PCAP parsing with Ethernet, IPv4/IPv6, ARP, TCP, and UDP decoding directly from wire formats.</li>
+          <li>5-tuple flow tracking and TCP reassembly with out-of-order buffering.</li>
+          <li>Detection rules for port scans, SYN floods, and ARP spoofing running on real packet streams.</li>
+        </ul>
+        <div class="flagship-links">
+          <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">GitHub ↗</a>
+          <button class="case-toggle" aria-expanded="false" aria-controls="case-ndap">View case study ↓</button>
+        </div>
+      </div>
+      <div class="architecture" aria-label="NDAP architecture">
+        <div class="arch-label">Packet processing pipeline</div>
+        <div class="arch-flow">
+          <div class="arch-step">Raw Packets (PCAP)</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Ethernet</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">IPv4 / IPv6</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">TCP / UDP / ARP</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">5-Tuple Flow Tracking</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">TCP Reassembly (Out-of-Order Buffering)</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Detection Engine</div><div class="arch-arrow">↓</div>
+          <div class="arch-step">Alerts / CLI / API</div>
+        </div>
+        <div class="tech-stack">
+          <span>Rust</span><span>Cargo Workspace</span><span>PCAP</span><span>TCP/IP</span><span>axum</span><span>tokio</span>
+        </div>
+      </div>
+
+      <div class="case-study" id="case-ndap">
+        <div class="case-inner">
+          <div class="case-block">
+            <h4>What problem this solves</h4>
+            <p>Most detection logic operates on structured data — but on the wire, everything starts as raw bytes. NDAP is a from-scratch attempt to own that whole chain in Rust: decode packets off the network, reconstruct the flows and streams they belong to, and only then apply detection logic — rather than relying on a higher-level library to do the hard networking part.</p>
+          </div>
+          <div class="case-block">
+            <h4>How it works</h4>
+            <p>PCAP input is parsed and decoded layer by layer — Ethernet framing, then IPv4/IPv6, then TCP, UDP, or ARP — into typed structures the rest of the platform can reason about. Packets are grouped into flows using a 5-tuple (source/destination IP and port, plus protocol), and TCP streams are reassembled with basic out-of-order buffering so that detection isn't fooled by packets arriving out of sequence.</p>
+          </div>
+          <div class="case-block">
+            <h4>Engineering decisions</h4>
+            <ul>
+              <li>Structured as a Cargo workspace, splitting capture, decoding, flow tracking, detection, and API/CLI into separate modules rather than one monolithic binary.</li>
+              <li>Rust chosen deliberately for a packet-processing system where memory safety and predictable performance both matter.</li>
+              <li>axum and tokio used for the async API layer, keeping packet processing and the API surface decoupled.</li>
+              <li>Out-of-order buffering implemented for TCP reassembly rather than assuming a clean, in-order packet stream.</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h4>Security model</h4>
+            <p>Detection rules operate on reconstructed flows and streams — not raw packets — covering port scans, SYN floods, and ARP spoofing, and were exercised against real packet captures rather than synthetic-only test data.</p>
+          </div>
+          <div class="case-block">
+            <h4>Where this stands</h4>
+            <p>NDAP is an independent, open-source systems project, not a hardened or commercially deployed detection product. It's built to demonstrate the networking and Rust engineering underneath a detection platform. Source and history are on GitHub.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- SUPPORTING PROJECTS -->
+    <div class="supporting-head">Supporting Projects</div>
+
+    <div class="project-row" id="p-audit">
+      <div class="pnum">03</div>
+      <div>
+        <div class="project-title">LogSentinel Approval &amp; Audit</div>
+        <div class="project-sub">Security Response Authorization Service</div>
+        <ul class="project-desc">
+          <li>Approval-gated response service, separating detection/policy decisions from human authorization.</li>
+          <li>Approval creation, retrieval, approve/deny flows, actor and reason tracking, audit records.</li>
+          <li>Fail-closed design — containment actions never fire if the approval service is unavailable.</li>
+          <li>State-transition protection preventing already-decided approvals from being re-decided.</li>
+        </ul>
+      </div>
+      <div class="project-meta">
+        <div class="tech-tags">Python<br>FastAPI<br>Pydantic<br>pytest<br>HTTPX<br>Docker</div>
+      </div>
+    </div>
+
+    <div class="project-row" id="p-sentinel">
+      <div class="pnum">04</div>
+      <div>
+        <div class="project-title">Sentinel</div>
+        <div class="project-sub">Async Reconnaissance Framework</div>
+        <ul class="project-desc">
+          <li>Asynchronous recon framework with global concurrency control and rate limiting.</li>
+          <li>Structured, typed result models with streaming CLI output.</li>
+          <li>Maintained as an independent open-source security project.</li>
+        </ul>
+      </div>
+      <div class="project-meta">
+        <div class="tech-tags">Python<br>Pydantic<br>Typer<br>Async Networking</div>
+      </div>
+    </div>
+
+    <div class="project-row" id="p-scanner">
+      <div class="pnum">05</div>
+      <div>
+        <div class="project-title">Mini Scanner</div>
+        <div class="project-sub">TCP-Connect Port Scanner</div>
+        <ul class="project-desc">
+          <li>Concurrent TCP-connect scanning with hostname resolution and banner grabbing.</li>
+          <li>Same scan engine reused across CLI and Flask interfaces, with authorization confirmation and rate limiting.</li>
+        </ul>
+      </div>
+      <div class="project-meta">
+        <div class="tech-tags">Python<br>ThreadPoolExecutor<br>Flask<br>pytest</div>
+      </div>
+    </div>
+
+    <div class="project-row" id="p-packet">
+      <div class="pnum">06</div>
+      <div>
+        <div class="project-title">PacketSnifferAnalyzer</div>
+        <div class="project-sub">Network Packet Analysis Platform</div>
+        <span class="project-status">In development</span>
+        <ul class="project-desc">
+          <li>Shared capture core with protocol parsing, traffic analysis, CLI, GUI, and dashboard interfaces.</li>
+          <li>Structured with Clean and Hexagonal Architecture; automated testing, coverage, static analysis, and dependency auditing configured.</li>
+        </ul>
+      </div>
+      <div class="project-meta">
+        <div class="tech-tags">Python<br>Scapy<br>FastAPI<br>PyQt6<br>Bandit<br>pip-audit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ENGINEERING ===================== -->
+  <section id="engineering" class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Engineering</h2>
+      <div class="section-index">STACK + OPEN SOURCE</div>
+    </div>
+
+    <div class="skills-list">
+      <div class="skill-row">
+        <h3>Security Engineering</h3>
+        <p>Threat Detection <span class="sep">·</span> Log Analysis <span class="sep">·</span> Network Security <span class="sep">·</span> Packet Analysis <span class="sep">·</span> Security Automation <span class="sep">·</span> Reconnaissance <span class="sep">·</span> Vulnerability Assessment <span class="sep">·</span> Incident-Response Workflows <span class="sep">·</span> Audit Controls</p>
+      </div>
+      <div class="skill-row">
+        <h3>Networking</h3>
+        <p>TCP/IP <span class="sep">·</span> PCAP <span class="sep">·</span> Ethernet <span class="sep">·</span> IPv4/IPv6 <span class="sep">·</span> ARP <span class="sep">·</span> TCP/UDP <span class="sep">·</span> Flow Tracking <span class="sep">·</span> TCP Reassembly <span class="sep">·</span> Port Scanning <span class="sep">·</span> Banner Grabbing</p>
+      </div>
+      <div class="skill-row">
+        <h3>Detection</h3>
+        <p>Brute-Force <span class="sep">·</span> SQL Injection <span class="sep">·</span> XSS <span class="sep">·</span> Path Traversal / LFI <span class="sep">·</span> Port-Scan <span class="sep">·</span> SYN-Flood <span class="sep">·</span> ARP-Spoof <span class="sep">·</span> Anomaly Detection</p>
+      </div>
+      <div class="skill-row">
+        <h3>Engineering</h3>
+        <p>Python <span class="sep">·</span> Rust <span class="sep">·</span> Bash <span class="sep">·</span> TypeScript <span class="sep">·</span> FastAPI <span class="sep">·</span> Flask <span class="sep">·</span> REST APIs <span class="sep">·</span> WebSockets <span class="sep">·</span> SQLite <span class="sep">·</span> Pydantic <span class="sep">·</span> pytest <span class="sep">·</span> GitHub Actions <span class="sep">·</span> Docker <span class="sep">·</span> Cargo <span class="sep">·</span> Scapy <span class="sep">·</span> Bandit <span class="sep">·</span> pip-audit</p>
+      </div>
+    </div>
+
+    <div class="oss-block">
+      <div class="oss-grid">
+        <div class="oss-text">
+          <span class="section-kicker">Open Source</span>
+          <p>Everything above is built in the open. Rather than one polished portfolio piece, these are independent projects — some finished, one still in progress — written to be read, run, and tested by anyone, not just demoed.</p>
+          <p>The projects deliberately span two languages and two problem domains — application-layer log analysis in Python, and wire-level packet processing in Rust — because detection engineering touches both.</p>
+          <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener" style="font-family:'JetBrains Mono', monospace; font-size:13px; border-bottom:1px solid var(--line); padding-bottom:2px;">github.com/Rohit30Confluence ↗</a>
+        </div>
+        <ul class="repo-list">
+          <li><a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">LogSentinel</a><span>Python · FastAPI</span></li>
+          <li><a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">NDAP</a><span>Rust · axum</span></li>
+          <li><a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">LogSentinel Approval &amp; Audit</a><span>Python · FastAPI</span></li>
+          <li><a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">Sentinel</a><span>Python · Async</span></li>
+          <li><a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">Mini Scanner</a><span>Python · Flask</span></li>
+          <li><a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">PacketSnifferAnalyzer</a><span>Python · Scapy — alpha</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">About</h2>
+      <div class="section-index">BACKGROUND</div>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p class="about-lede">I build systems to understand <em>how they fail.</em></p>
+        <div class="about-body">
+          <p>My work sits around security engineering, network systems, and automation — mostly in Python and Rust, mostly built to be run and tested, not just described.</p>
+          <p>I graduated in Computer Engineering from Sinhgad College of Engineering, Savitribai Phule Pune University, in 2025, and I'm currently based in Pune, looking for an entry-level security or systems role where I can keep building this way.</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="side-block">
+          <h3>Certifications</h3>
+          <ul class="cert-list">
+            <li>Google Cybersecurity Professional Certificate</li>
+            <li>Mastercard Cybersecurity Job Simulation</li>
+            <li>Oracle Certified Professional — OCI Data Science</li>
+            <li>OCI 2025 Certified AI Foundations Associate</li>
+            <li>OCI 2025 Certified Foundations Associate</li>
+          </ul>
+        </div>
+
+        <div class="side-block">
+          <h3>Education</h3>
+          <div class="edu-degree">Bachelor of Engineering, Computer Engineering</div>
+          <div class="edu-school">Sinhgad College of Engineering, Savitribai Phule Pune University</div>
+          <div class="edu-meta">
+            <span>2019 – 2025</span>
+            <span>CGPA 7.54/10</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="contact-title">
+      Building something difficult in security or systems?<br>
+      Let's talk — <a href="mailto:rohitdinde30@gmail.com">rohitdinde30@gmail.com</a>
+    </h2>
+    <div class="contact-links">
+      <a href="mailto:rohitdinde30@gmail.com">Email</a>
+      <a href="tel:+918219695415">+91 82196 95415</a>
+      <a href="https://github.com/Rohit30Confluence" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/rohitdinde" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://rohit30confluence.github.io/Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </div>
+    <div class="foot-bottom">
+      <span>Rohit Dinde — dr.confluence — Pune, India</span>
+      <a class="back-top" href="#top">↑ Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Header border on scroll
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const mobilePanel = document.getElementById('mobilePanel');
+  navToggle.addEventListener('click', () => {
+    const open = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', String(!open));
+    mobilePanel.classList.toggle('open', !open);
+  });
+  mobilePanel.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      mobilePanel.classList.remove('open');
+    });
+  });
+
+  // Case study toggles
+  document.querySelectorAll('.case-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      panel.classList.toggle('open', !open);
+      btn.textContent = !open ? 'Hide case study ↑' : 'View case study ↓';
+    });
+  });
+</script>
+
+</body>
+</html>
