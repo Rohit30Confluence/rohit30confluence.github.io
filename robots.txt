@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://rohit30confluence.github.io/sitemap.xml
